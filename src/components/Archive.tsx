@@ -1,0 +1,39 @@
+import { useEffect, useState } from 'react';
+import { ArrowRight, ArrowUpRight, Search, X } from 'lucide-react';
+import { PROJECTS, statusLabels } from '../data';
+import type { Project } from '../types';
+import { Chapter, ExternalLink, Modal } from './Primitives';
+const featured = ['veritas', 'anime-quote', 'analisis-tanaman', 'repo-flow'];
+const categories = [{ id: 'all', name: 'Semua' }, { id: 'AI Tools', name: 'AI & eksplorasi' }, { id: 'Utilities', name: 'Tools' }, { id: 'Productivity', name: 'Produktivitas' }, { id: 'Archive Experiments', name: 'Eksperimen' }];
+export function WorkCover({ work }: { work: Project }) {
+  return <div className={`work-cover cover-${work.id}`} aria-label={`Ilustrasi konsep ${work.name}`} role="img">
+    <span className="cover-index">R_HMT / {work.category.toUpperCase()}</span>
+    {work.id === 'veritas' ? <div className="veritas-art"><span className="paper-corner"/><span className="serif">Veritas.</span><div className="paper-lines"/><em>From pages<br/>to perspective.</em><span className="paper-scan"/></div> : work.id === 'anime-quote' ? <div className="quote-art"><span className="quote-moon"/><span className="quote-stars">✦</span><em>Some words<br/>stay with you.</em><span>ANIME QUOTE</span></div> : work.id === 'analisis-tanaman' ? <div className="plant-art"><svg viewBox="0 0 240 240" aria-hidden="true"><path d="M110 210Q115 145 160 57M120 155C36 144 26 54 28 22C120 34 151 78 120 155ZM137 124C128 41 183 8 219 7C230 85 184 115 137 124Z" fill="currentColor"/><path d="M44 43L120 150M204 24L139 119" stroke="#abc0a7" strokeWidth="1" fill="none"/></svg><span>Observe.<br/><em>Understand.</em></span><i>BOTANICAL STUDY / 03</i></div> : work.id === 'repo-flow' ? <div className="flow-art"><svg viewBox="0 0 360 190" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M40 95h85m30 0h65m-80 0v-55h75m-75 55v55h75M235 40h65v55h-65M235 150h65V95"/><circle cx="40" cy="95" r="16"/><rect x="125" y="80" width="30" height="30" rx="4"/><circle cx="235" cy="40" r="14"/><circle cx="235" cy="150" r="14"/><rect x="280" y="75" width="40" height="40" rx="4"/></g></svg><span className="serif">Repo Flow</span><small>A LITTLE MORE CLARITY.</small></div> : <div className="generic-art"><span>{String(PROJECTS.indexOf(work) + 1).padStart(2, '0')}</span><em>{work.name}</em></div>}
+    <span className="cover-caption">ILLUSTRATIVE STUDY</span>
+  </div>;
+}
+export default function Archive() {
+  const [filter, setFilter] = useState('all'); const [query, setQuery] = useState(''); const [all, setAll] = useState(false);
+  const [active, setActive] = useState<Project | null>(null);
+  useEffect(() => { const sync = () => { if (location.hash.startsWith('#work-')) setActive(PROJECTS.find(p => `#work-${p.id}` === location.hash) || null); else setActive(null); }; sync(); window.addEventListener('hashchange', sync); return () => window.removeEventListener('hashchange', sync); }, []);
+  const list = PROJECTS.filter(w => (filter === 'all' || w.category === filter) && `${w.name} ${w.summary} ${w.ecosystem.join(' ')}`.toLowerCase().includes(query.toLowerCase()));
+  const selection = !all && !query && filter === 'all' ? featured.map(id => PROJECTS.find(p => p.id === id)!) : list;
+  function open(work: Project) { setActive(work); history.replaceState(null, '', `#work-${work.id}`); }
+  function close() { setActive(null); history.replaceState(null, '', '#archive'); }
+  return <section className="archive section-pad" id="archive" aria-labelledby="archive-title">
+    <div className="wrap">
+      <Chapter number="04">THE DIGITAL ARCHIVE</Chapter>
+      <div className="section-heading"><h2 id="archive-title">Things I made.<br/><em>Things I learned.</em></h2><div><p>Jejak ide, percobaan, dan rasa penasaran.<br/>Tidak semuanya bertahan online. Ceritanya tetap ada.</p><span className="micro-note">{PROJECTS.length} ENTRIES / AN ONGOING EXPLORATION</span></div></div>
+      <div className="archive-toolbar"><div className="filter-list" aria-label="Filter karya">{categories.map(c => <button key={c.id} onClick={() => { setFilter(c.id); setAll(true); }} aria-pressed={filter === c.id}>{c.name}</button>)}</div><label className="search-box"><Search size={16}/><span className="sr-only">Cari arsip</span><input value={query} onChange={e => { setQuery(e.target.value); setAll(true); }} placeholder="Cari sebuah ide…" type="search"/></label></div>
+      <p className="sr-only" role="status">{selection.length} karya ditemukan</p>
+      <div className={`works-grid ${selection.length > 4 ? 'works-expanded' : ''}`}>{selection.map((work, i) => <article className="work-card" key={work.id}>
+        <button className="work-visual-button" onClick={() => open(work)} aria-label={`Baca cerita ${work.name}`}><WorkCover work={work}/><span className="work-open"><ArrowUpRight size={22}/></span></button>
+        <div className="work-meta"><span>{String(i + 1).padStart(2, '0')} / {work.category}</span><span>{statusLabels[work.status]}</span></div>
+        <button className="work-title" onClick={() => open(work)}><h3>{work.name}</h3><ArrowUpRight size={18}/></button><p>{work.summary}</p>
+      </article>)}</div>
+      {!selection.length && <div className="empty-state"><Search size={30}/><h3>Belum ketemu.</h3><p>Coba nama karya, teknologi, atau kata yang berbeda.</p><button className="text-link" onClick={() => { setQuery(''); setFilter('all'); }}>Reset pencarian <X size={15}/></button></div>}
+      <div className="archive-bottom"><span>Setiap karya adalah sebuah langkah.</span><button className="button button-outline" onClick={() => { setAll(x => !x); setFilter('all'); setQuery(''); }}>{all ? 'Tampilkan pilihan' : `Jelajahi semua arsip (${PROJECTS.length})`}<ArrowRight size={16}/></button></div>
+      {active && <Modal label={active.name} onClose={close} className="work-modal"><WorkCover work={active}/><p className="eyebrow">DIGITAL ARCHIVE / {statusLabels[active.status]}</p><h2>{active.name}</h2><p className="modal-summary">{active.summary}</p><div className="tag-list">{active.ecosystem.map(t => <span key={t}>{t}</span>)}</div><dl className="work-story"><div><dt>Pertanyaan awal</dt><dd>{active.problem}</dd></div><div><dt>Apa yang dieksplorasi</dt><dd>{active.exploration}</dd></div><div><dt>Catatan arsip</dt><dd>{active.outcome}</dd></div></dl>{active.status !== 'ARCHIVED' && active.url && <><ExternalLink className="button button-dark" href={active.url}>{active.status === 'LIVE_VERIFIED' ? 'Buka demo' : 'Kunjungi tautan lama'}</ExternalLink><p className="micro-note">{active.status === 'LIVE_VERIFIED' ? 'Demo pernah diuji; ketersediaan dapat berubah.' : 'Ketersediaan dan fungsi tautan ini belum diverifikasi.'}</p></>}<p className="asset-note">Cover merupakan ilustrasi konsep, bukan screenshot produk.</p></Modal>}
+    </div>
+  </section>;
+}

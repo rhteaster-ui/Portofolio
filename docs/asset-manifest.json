@@ -1,0 +1,542 @@
+[
+  {
+    "path": "public/apple-touch-icon.png",
+    "bytes": 316172,
+    "width": 1254,
+    "height": 1254,
+    "kind": "user-supplied identity",
+    "source": "public/gambar/pp-dev.png",
+    "rights": "User-supplied asset; underlying character rights remain with respective owners",
+    "transform": "Unchanged copy"
+  },
+  {
+    "path": "public/favicon.svg",
+    "bytes": 258,
+    "kind": "original portfolio graphic",
+    "source": "Code-created for R_HMT V2",
+    "rights": "Project artwork",
+    "transform": "SVG or raster render"
+  },
+  {
+    "path": "public/fonts/instrument-serif-italic.woff2",
+    "bytes": 26380,
+    "kind": "self-hosted font",
+    "source": "https://github.com/google/fonts/tree/main/ofl/instrumentserif",
+    "rights": "SIL Open Font License 1.1; license copies in docs/licenses",
+    "transform": "WOFF2"
+  },
+  {
+    "path": "public/fonts/instrument-serif.woff2",
+    "bytes": 25176,
+    "kind": "self-hosted font",
+    "source": "https://github.com/google/fonts/tree/main/ofl/instrumentserif",
+    "rights": "SIL Open Font License 1.1; license copies in docs/licenses",
+    "transform": "WOFF2"
+  },
+  {
+    "path": "public/fonts/manrope-variable.ttf",
+    "kind": "self-hosted variable font",
+    "bytes": 164700,
+    "source": "https://github.com/google/fonts/tree/main/ofl/manrope",
+    "rights": "SIL OFL 1.1",
+    "transform": "Original font source"
+  },
+  {
+    "path": "public/fonts/manrope-variable.woff2",
+    "kind": "self-hosted variable font",
+    "bytes": 53912,
+    "source": "https://github.com/google/fonts/tree/main/ofl/manrope",
+    "rights": "SIL OFL 1.1",
+    "transform": "WOFF2 compression from official TTF"
+  },
+  {
+    "path": "public/fonts/manrope.woff2",
+    "bytes": 30320,
+    "kind": "self-hosted font",
+    "source": "https://github.com/google/fonts/tree/main/ofl/manrope",
+    "rights": "SIL Open Font License 1.1; license copies in docs/licenses",
+    "transform": "WOFF2"
+  },
+  {
+    "path": "public/fonts/spacegrotesk-variable.ttf",
+    "kind": "self-hosted variable font",
+    "bytes": 136676,
+    "source": "https://github.com/google/fonts/tree/main/ofl/spacegrotesk",
+    "rights": "SIL OFL 1.1",
+    "transform": "Original font source"
+  },
+  {
+    "path": "public/fonts/spacegrotesk-variable.woff2",
+    "kind": "self-hosted variable font",
+    "bytes": 49188,
+    "source": "https://github.com/google/fonts/tree/main/ofl/spacegrotesk",
+    "rights": "SIL OFL 1.1",
+    "transform": "WOFF2 compression from official TTF"
+  },
+  {
+    "path": "public/gambar/Bots.png",
+    "bytes": 18474,
+    "width": 450,
+    "height": 450,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Bots.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Coding.png",
+    "bytes": 41933,
+    "width": 640,
+    "height": 640,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Coding.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Hmmodz.png",
+    "bytes": 126600,
+    "width": 1280,
+    "height": 1280,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Hmmodz.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Promosi.png",
+    "bytes": 61552,
+    "width": 640,
+    "height": 640,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Promosi.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Promosiv2.png",
+    "bytes": 57041,
+    "width": 640,
+    "height": 640,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Promosiv2.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Ramda.jpg",
+    "bytes": 253610,
+    "width": 1280,
+    "height": 1280,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Ramda.jpg",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Reiz.png",
+    "bytes": 171535,
+    "width": 1254,
+    "height": 1254,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Reiz.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Rosee.jpg",
+    "bytes": 48413,
+    "width": 640,
+    "height": 640,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Rosee.jpg",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Scrape.png",
+    "bytes": 28150,
+    "width": 640,
+    "height": 640,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Scrape.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Shadow.png",
+    "bytes": 161698,
+    "width": 1024,
+    "height": 1024,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Shadow.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Tenkz.png",
+    "bytes": 42111,
+    "width": 640,
+    "height": 640,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Tenkz.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Thx.png",
+    "bytes": 1049030,
+    "width": 3264,
+    "height": 3264,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Thx.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/Zakrenz.png",
+    "bytes": 70613,
+    "width": 1280,
+    "height": 1280,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/Zakrenz.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/banner.jpg",
+    "bytes": 101156,
+    "width": 1500,
+    "height": 788,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/banner.jpg",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/kay.jpg",
+    "bytes": 41736,
+    "width": 736,
+    "height": 736,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/kay.jpg",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/pp-dev.png",
+    "bytes": 316172,
+    "width": 1254,
+    "height": 1254,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/pp-dev.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/pp.png",
+    "bytes": 306426,
+    "width": 864,
+    "height": 1088,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/pp.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/ppp.png",
+    "bytes": 1683561,
+    "width": 1448,
+    "height": 1086,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/ppp.png",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/ray.jpg",
+    "bytes": 38324,
+    "width": 400,
+    "height": 400,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/ray.jpg",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/gambar/thv.jpg",
+    "bytes": 56084,
+    "width": 1254,
+    "height": 1254,
+    "kind": "original source asset",
+    "source": "My-portofolio-main.zip: public/gambar/thv.jpg",
+    "rights": "Preserved from user-supplied source; ownership not independently verified."
+  },
+  {
+    "path": "public/googleced8c5ac5a2976cb.html",
+    "kind": "static asset",
+    "bytes": 53
+  },
+  {
+    "path": "public/images/Bots.webp",
+    "bytes": 14444,
+    "width": 450,
+    "height": 450,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Bots.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Coding.webp",
+    "bytes": 29852,
+    "width": 640,
+    "height": 640,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Coding.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Hmmodz.webp",
+    "bytes": 64092,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Hmmodz.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Promosi.webp",
+    "bytes": 53698,
+    "width": 640,
+    "height": 640,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Promosi.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Promosiv2.webp",
+    "bytes": 52338,
+    "width": 640,
+    "height": 640,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Promosiv2.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Ramda.webp",
+    "bytes": 70178,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Ramda.jpg",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Reiz.webp",
+    "bytes": 98676,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Reiz.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Rosee.webp",
+    "bytes": 42476,
+    "width": 640,
+    "height": 640,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Rosee.jpg",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Scrape.webp",
+    "bytes": 19086,
+    "width": 640,
+    "height": 640,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Scrape.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Shadow.webp",
+    "bytes": 129800,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Shadow.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Tenkz.webp",
+    "bytes": 31262,
+    "width": 640,
+    "height": 640,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Tenkz.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Thx.webp",
+    "bytes": 83330,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Thx.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/Zakrenz.webp",
+    "bytes": 33694,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/Zakrenz.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/arisu.webp",
+    "bytes": 54480,
+    "width": 600,
+    "height": 1200,
+    "kind": "official reference illustration",
+    "source": "https://you-zitsu.com/assets/character/c/2a1.webp",
+    "source_page": "https://you-zitsu.com/character.html",
+    "rights": "©衣笠彰梧・KADOKAWA刊／ようこそ実力至上主義の教室へ4製作委員会; no general reuse license found",
+    "transform": "Elaina: left-body crop, resize 550x1200. Arisu/Hiyori: resize 600x1200. WebP optimization."
+  },
+  {
+    "path": "public/images/banner.webp",
+    "bytes": 49008,
+    "width": 960,
+    "height": 504,
+    "kind": "optimized source asset",
+    "source": "public/gambar/banner.jpg",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/elaina.webp",
+    "bytes": 55788,
+    "width": 550,
+    "height": 1200,
+    "kind": "official reference illustration",
+    "source": "https://majotabi.jp/assets/character/c1.png?0701",
+    "source_page": "https://majotabi.jp/",
+    "rights": "© 白石定規・SBクリエイティブ／魔女の旅々製作委員会; no general reuse license found",
+    "transform": "Elaina: left-body crop, resize 550x1200. Arisu/Hiyori: resize 600x1200. WebP optimization."
+  },
+  {
+    "path": "public/images/hiyori.webp",
+    "bytes": 59658,
+    "width": 600,
+    "height": 1200,
+    "kind": "official reference illustration",
+    "source": "https://you-zitsu.com/assets/character/c/2c4.webp",
+    "source_page": "https://you-zitsu.com/character.html",
+    "rights": "©衣笠彰梧・KADOKAWA刊／ようこそ実力至上主義の教室へ4製作委員会; no general reuse license found",
+    "transform": "Elaina: left-body crop, resize 550x1200. Arisu/Hiyori: resize 600x1200. WebP optimization."
+  },
+  {
+    "path": "public/images/kay.webp",
+    "bytes": 33464,
+    "width": 736,
+    "height": 736,
+    "kind": "optimized source asset",
+    "source": "public/gambar/kay.jpg",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/pp-dev.webp",
+    "bytes": 77386,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/pp-dev.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/pp.webp",
+    "bytes": 65832,
+    "width": 762,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/pp.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/ppp.webp",
+    "bytes": 42524,
+    "width": 960,
+    "height": 720,
+    "kind": "optimized source asset",
+    "source": "public/gambar/ppp.png",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/ray.webp",
+    "bytes": 31764,
+    "width": 400,
+    "height": 400,
+    "kind": "optimized source asset",
+    "source": "public/gambar/ray.jpg",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/images/thv.webp",
+    "bytes": 26844,
+    "width": 960,
+    "height": 960,
+    "kind": "optimized source asset",
+    "source": "public/gambar/thv.jpg",
+    "transform": "WebP, maximum dimension 960px; original retained",
+    "rights": "Same as source"
+  },
+  {
+    "path": "public/og-image.jpg",
+    "bytes": 97090,
+    "width": 1200,
+    "height": 630,
+    "kind": "rendered portfolio screenshot",
+    "source": "docs/screenshots/v2.1/1440-home.jpg",
+    "rights": "Portfolio UI with user-supplied photo",
+    "transform": "Crop/resize to 1200x630"
+  },
+  {
+    "path": "public/posters/cote.webp",
+    "bytes": 64446,
+    "width": 1280,
+    "height": 720,
+    "kind": "video still",
+    "source": "https://res.cloudinary.com/dhxfke7kq/video/upload/v1791439342/Ssstt/wnudrzps2bdshrcyykkw.mp4",
+    "transform": "Still at 2 seconds, rotate -90 degrees, WebP 1280x720; MP4 unchanged",
+    "rights": "User-specified source; fan edit, copyright belongs to respective creators"
+  },
+  {
+    "path": "public/posters/origin.svg",
+    "bytes": 1724,
+    "kind": "original portfolio graphic",
+    "source": "Code-created for R_HMT V2",
+    "rights": "Project artwork",
+    "transform": "SVG or raster render"
+  },
+  {
+    "path": "public/posters/origin.webp",
+    "bytes": 110330,
+    "width": 1000,
+    "height": 1000,
+    "kind": "original portfolio graphic",
+    "source": "Code-created for R_HMT V2",
+    "rights": "Project artwork",
+    "transform": "SVG or raster render"
+  },
+  {
+    "path": "public/robots.txt",
+    "kind": "static asset",
+    "bytes": 80
+  },
+  {
+    "path": "public/sitemap.xml",
+    "kind": "static asset",
+    "bytes": 151
+  }
+]

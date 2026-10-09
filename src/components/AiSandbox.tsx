@@ -1,0 +1,36 @@
+import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { ArrowUp, Check, Copy, LoaderCircle, RotateCcw, Sparkles, Square, Trash2 } from 'lucide-react';
+import { Chapter, Mark } from './Primitives';
+type Message = { role: 'user' | 'assistant'; content: string };
+const prompts = ['Bagaimana kamu mulai belajar?', 'Apakah semua proyek masih aktif?', 'Apa itu Anime Quote?'];
+export default function AiSandbox() {
+  const [messages, setMessages] = useState<Message[]>([]); const [input, setInput] = useState(''); const [busy, setBusy] = useState(false); const [error, setError] = useState(''); const [copied, setCopied] = useState(-1); const [online, setOnline] = useState(true);
+  const controller = useRef<AbortController | null>(null); const end = useRef<HTMLDivElement>(null); const log = useRef<HTMLDivElement>(null); const textarea = useRef<HTMLTextAreaElement>(null); const lock = useRef(false);
+  useEffect(() => { const update = () => setOnline(navigator.onLine); update(); window.addEventListener('online', update); window.addEventListener('offline', update); return () => { controller.current?.abort(); window.removeEventListener('online', update); window.removeEventListener('offline', update); }; }, []);
+  useEffect(() => { if (log.current) log.current.scrollTop = log.current.scrollHeight; }, [messages, busy, error]);
+  async function send(text: string, retry = false) {
+    if (!text.trim() || lock.current || !online) return;
+    lock.current = true; setBusy(true); setError('');
+    const base = messages.at(-1)?.role === 'user' ? messages.slice(0, -1) : messages;
+    const next = retry ? messages : [...base, { role: 'user' as const, content: text.trim() }];
+    setMessages(next); if (!retry) setInput('');
+    const abort = new AbortController(); controller.current = abort;
+    let timedOut = false; const timer = setTimeout(() => { timedOut = true; abort.abort(); }, 25000);
+    try {
+      const response = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: next.slice(-8).map(m => ({ ...m, content: m.content.slice(0, 1200) })) }), signal: abort.signal });
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok || typeof body.text !== 'string' || !body.text.trim()) throw new Error(body.error || 'Layanan AI sementara tidak tersedia. Coba lagi nanti.');
+      setMessages([...next, { role: 'assistant', content: body.text }]);
+    } catch (err) { setError(abort.signal.aborted ? (timedOut ? 'Respons terlalu lama. Coba lagi sebentar lagi.' : 'Respons dihentikan. Kamu bisa mencoba lagi.') : (err instanceof Error ? err.message : 'Koneksi terputus. Coba lagi.')); }
+    finally { clearTimeout(timer); lock.current = false; setBusy(false); controller.current = null; textarea.current?.focus(); }
+  }
+  async function copy(text: string, i: number) { try { await navigator.clipboard.writeText(text); setCopied(i); setTimeout(() => setCopied(-1), 1800); } catch { setError('Penyalinan tidak tersedia. Pilih teks untuk menyalinnya.'); } }
+  function submit(e: FormEvent) { e.preventDefault(); void send(input); }
+  const lastUser = [...messages].reverse().find(m => m.role === 'user');
+  return <section className="lab section-pad" id="lab" aria-labelledby="lab-title"><div className="wrap lab-layout"><div className="lab-intro"><Chapter number="05">MUTASI LAB / DIGITAL TWIN</Chapter><h2 id="lab-title">A different way<br/>to <em>say hello.</em></h2><p>Kenalan lewat percakapan. Tanyakan tentang perjalanan, karya, atau hal lain yang sedang membuatmu penasaran.</p><div className="lab-signature"><Mark/><div><strong>R_HMT, in conversation.</strong><span>Representasi AI · bukan orang asli</span></div></div><p className="lab-note">AI bisa keliru. Chat dikirim ke layanan AI eksternal untuk menghasilkan respons. Hindari data pribadi atau rahasia. Riwayat hanya ada selama halaman ini terbuka.</p></div>
+    <div className="chat-panel"><div className="chat-header"><div><span className="status-dot"/><span>Mutasi</span><small>Personal AI</small></div><button className="icon-button" disabled={!messages.length || busy} onClick={() => { setMessages([]); setError(''); textarea.current?.focus(); }} aria-label="Hapus percakapan"><Trash2 size={16}/></button></div>
+    <div className="chat-log" ref={log} role="log" aria-live="polite" aria-label="Percakapan dengan Mutasi">{!messages.length && <div className="chat-welcome"><span className="chat-star"><Sparkles size={25}/></span><h3>Rasa penasaranmu<br/>boleh mulai di sini.</h3><p>Aku Mutasi, representasi AI R_HMT.<br/>Mau ngobrol tentang apa?</p><div className="chat-prompts">{prompts.map(p => <button key={p} onClick={() => send(p)} disabled={busy || !online}>{p}<ArrowUp size={14}/></button>)}</div></div>}{messages.map((m, i) => <div className={`chat-message message-${m.role}`} key={i}><span className="message-role">{m.role === 'user' ? 'KAMU' : 'MUTASI'}</span><p>{m.content}</p>{m.role === 'assistant' && <button onClick={() => copy(m.content, i)} className="copy-button" aria-label="Salin jawaban">{copied === i ? <Check size={13}/> : <Copy size={13}/>}</button>}</div>)}{busy && <div className="chat-thinking" role="status"><LoaderCircle size={15} className="spin"/>Sedang menyusun jawaban…</div>}{error && <div className="chat-error" role="alert"><p>{error}</p>{lastUser && <button onClick={() => send(lastUser.content, true)} disabled={busy || !online}><RotateCcw size={14}/>Coba lagi</button>}</div>}<div ref={end}/></div>
+    {!online && <p className="offline-note" role="status">Kamu sedang offline. Percakapan dapat dilanjutkan setelah tersambung.</p>}
+    <form className="chat-form" onSubmit={submit}><label className="sr-only" htmlFor="chat-input">Tulis pesan untuk Mutasi</label><textarea id="chat-input" ref={textarea} rows={1} value={input} maxLength={1200} placeholder="Tanyakan sesuatu…" onChange={e => setInput(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); void send(input); } }}/>{busy ? <button type="button" onClick={() => controller.current?.abort()} aria-label="Hentikan respons"><Square size={15}/></button> : <button type="submit" disabled={!input.trim() || !online} aria-label="Kirim pesan"><ArrowUp size={19}/></button>}</form><div className="chat-footer"><span>Enter untuk kirim · Shift + Enter untuk baris baru</span><span>{input.length}/1200</span></div></div>
+  </div></section>;
+}
