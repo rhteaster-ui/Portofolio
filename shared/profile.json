@@ -2,25 +2,73 @@
   "name": "R_HMT",
   "alias": "R_HMT OFC",
   "role": "Self-taught developer & curious explorer",
-  "about": "Aku seorang pelajar yang senang mencari tahu bagaimana ide berubah menjadi sesuatu yang bisa digunakan. Web development adalah ruang belajarku: mencoba, menemui jalan buntu, lalu merakitnya kembali dengan pemahaman baru.",
-  "approach": "Sebagian besar perjalanan ini dimulai dari Oppo A3s, tanpa laptop. Sekarang, kode, desain, dan AI menjadi cara untuk menghubungkan rasa penasaran dengan karya nyata. Aku belajar lewat proyek, bukan mengejar gelar ahli di setiap teknologi.",
-  "ethos": "Saya tidak berusaha menguasai seluruh teknologi yang ada. Saya lebih tertarik memahami bagaimana teknologi saling terhubung, bagaimana sebuah ide dapat diwujudkan, dan bagaimana rasa penasaran bisa berubah menjadi sesuatu yang nyata.",
+  "about": "Sebenarnya aku udah tertarik sama teknologi sejak awal, cuma belum mendalaminya. Waktu kelas 10 ada tugas kelompok P5. Tugasnya nggak berkaitan langsung dengan web development, tapi i mencoba pendekatan lain sesuai minat supaya bisa berkontribusi.",
+  "approach": "Setelah tugas selesai, ketertarikan w tetap berlanjut. Sebagian besar proses belajar ini memakai Oppo A3s, tanpa laptop. Mulai dari eksperimen sederhana, debugging, sampai mencoba desain dan workflow bersama AI. Sekarang alasannya sudah berkembang: aku memang ingin memahami cara ide diimplementasikan.",
+  "ethos": "Saya nggak berusaha menguasai semua tools. Lebih tertarik memahami fundamental, hubungan antarteknologi, dan kapan sebuah pendekatan memang relevan. Untuk sekarang masih fokus belajar dan eksperimen. But idk, nanti perspektif i bisa berubah.",
   "socials": [
-    {"name":"GitHub","url":"https://github.com/rahmat-369","handle":"rahmat-369"},
-    {"name":"Telegram","url":"https://t.me/rAi_engine","handle":"rAi_engine"},
-    {"name":"Instagram","url":"https://www.instagram.com/rahmt_nhw","handle":"rahmt_nhw"},
-    {"name":"TikTok","url":"https://www.tiktok.com/@r_hmtofc","handle":"r_hmtofc"},
-    {"name":"WhatsApp Channel","url":"https://whatsapp.com/channel/0029VbBjyjlJ93wa6hwSWa0p","handle":"R_HMT · Code & AI"}
+    {
+      "name": "GitHub",
+      "url": "https://github.com/rahmat-369",
+      "handle": "rahmat-369"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://t.me/rAi_engine",
+      "handle": "rAi_engine"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/rahmt_nhw",
+      "handle": "rahmt_nhw"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/@r_hmtofc",
+      "handle": "r_hmtofc"
+    },
+    {
+      "name": "WhatsApp Channel",
+      "url": "https://whatsapp.com/channel/0029VbBjyjlJ93wa6hwSWa0p",
+      "handle": "R_HMT · Code & AI"
+    }
   ],
   "anime": [
-    {"id":"elaina","name":"Elaina","origin":"Majo no Tabitabi","label":"The wandering witch","note":"Karakter favorit utama. Sebuah ruang kecil untuk sisi personal di antara kode dan eksperimen.","image":"/images/elaina.webp","source":"https://majotabi.jp/","color":"#a6a09d"},
-    {"id":"arisu","name":"Arisu Sakayanagi","origin":"Classroom of the Elite","label":"Quiet intelligence","note":"Bagian dari koleksi karakter favorit dari Classroom of the Elite.","image":"/images/arisu.webp","source":"https://you-zitsu.com/character.html","color":"#a7947f"},
-    {"id":"hiyori","name":"Hiyori Shiina","origin":"Classroom of the Elite","label":"A quieter chapter","note":"Sisi tenang dari personal universe ini. Juga dari anime favorit, Classroom of the Elite.","image":"/images/hiyori.webp","source":"https://you-zitsu.com/character.html","color":"#87938b"}
+    {
+      "id": "elaina",
+      "name": "Elaina",
+      "origin": "Majo no Tabitabi",
+      "label": "The wandering witch",
+      "note": "Karakter favorit utama. Sebuah ruang kecil untuk sisi personal di antara kode dan eksperimen.",
+      "image": "/images/anime-v22/elaina.jpg",
+      "source": "https://id.pinterest.com/pin/1130192469019479631/",
+      "color": "#a6a09d"
+    },
+    {
+      "id": "arisu",
+      "name": "Arisu Sakayanagi",
+      "origin": "Classroom of the Elite",
+      "label": "Quiet intelligence",
+      "note": "Bagian dari koleksi karakter favorit dari Classroom of the Elite.",
+      "image": "/images/anime-v22/arisu.jpg",
+      "source": "https://id.pinterest.com/pin/287737863685486930/",
+      "color": "#a7947f"
+    },
+    {
+      "id": "hiyori",
+      "name": "Hiyori Shiina",
+      "origin": "Classroom of the Elite",
+      "label": "A quieter chapter",
+      "note": "Sisi tenang dari personal universe ini. Juga dari anime favorit, Classroom of the Elite.",
+      "image": "/images/anime-v22/hiyori.jpg",
+      "source": "https://id.pinterest.com/pin/846113848787698598/",
+      "color": "#87938b"
+    }
   ],
   "video": {
-    "url":"https://res.cloudinary.com/dhxfke7kq/video/upload/v1791439342/Ssstt/wnudrzps2bdshrcyykkw.mp4",
-    "poster":"/posters/cote.webp",
-    "rotation":-90,
-    "title":"Classroom of the Elite"
-  }
+    "url": "https://res.cloudinary.com/dhxfke7kq/video/upload/v1791439342/Ssstt/wnudrzps2bdshrcyykkw.mp4",
+    "poster": "/posters/cote.webp",
+    "rotation": -90,
+    "title": "Classroom of the Elite"
+  },
+  "motivation": "Ada motivasi personal juga. Waktu itu ada seseorang di kelas yang i sukai, meski nggak pernah diungkapkan. Secara nggak langsung, itu bikin aku ingin membuktikan kalau bisa berkontribusi, bukan sekadar ikut nama. Tapi ya, itu salah satu pemicunya saja."
 }

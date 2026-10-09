@@ -22,6 +22,10 @@ export function useExperience(enabled: boolean) {
     window.addEventListener('scroll', request, { passive: true });
     window.addEventListener('resize', request);
     update();
+    const visibility = () => { root.dataset.pageHidden = document.hidden ? 'true' : 'false'; };
+    document.addEventListener('visibilitychange', visibility); visibility();
+    const activity = new IntersectionObserver(entries => entries.forEach(entry => entry.target.classList.toggle('motion-outside', !entry.isIntersecting)), { rootMargin: '100px' });
+    document.querySelectorAll('main section').forEach(el => activity.observe(el));
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
         if (entry.isIntersecting) { entry.target.classList.add('is-revealed'); observer.unobserve(entry.target); }
@@ -30,7 +34,7 @@ export function useExperience(enabled: boolean) {
     const targets = document.querySelectorAll('.section-heading, .about-grid, .journey-step, .lab-layout, .anime-gallery, .ethos blockquote');
     if (enabled) targets.forEach(el => { el.classList.add('reveal-ready'); observer.observe(el); });
     return () => {
-      cancelAnimationFrame(frame); observer.disconnect();
+      cancelAnimationFrame(frame); observer.disconnect(); activity.disconnect(); document.removeEventListener('visibilitychange', visibility);
       window.removeEventListener('scroll', request); window.removeEventListener('resize', request);
       targets.forEach(el => el.classList.remove('reveal-ready'));
     };

@@ -493,13 +493,13 @@
   },
   {
     "path": "public/og-image.jpg",
-    "bytes": 97090,
+    "bytes": 167087,
     "width": 1200,
     "height": 630,
-    "kind": "rendered portfolio screenshot",
-    "source": "docs/screenshots/v2.1/1440-home.jpg",
-    "rights": "Portfolio UI with user-supplied photo",
-    "transform": "Crop/resize to 1200x630"
+    "kind": "native rendered OG banner",
+    "source": "docs/design/og-layout.html",
+    "rights": "Uses authentic identity and generated scenery",
+    "transform": "Native browser render, 1200×630 crop"
   },
   {
     "path": "public/posters/cote.webp",
@@ -538,5 +538,217 @@
     "path": "public/sitemap.xml",
     "kind": "static asset",
     "bytes": 151
+  },
+  {
+    "path": "public/images/exploration-landscape.webp",
+    "bytes": 290412,
+    "kind": "generated landscape",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "path": "public/images/anime-v22/duo.jpg",
+    "bytes": 92557,
+    "kind": "user-selected Pinterest reference",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Unchanged reference asset",
+    "width": 736,
+    "height": 981
+  },
+  {
+    "path": "public/images/anime-v22/elaina.jpg",
+    "bytes": 114210,
+    "kind": "user-selected Pinterest reference",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Unchanged reference asset",
+    "width": 720,
+    "height": 1200
+  },
+  {
+    "path": "public/images/anime-v22/hiyori-library.jpg",
+    "bytes": 280619,
+    "kind": "user-selected Pinterest reference",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Unchanged reference asset",
+    "width": 1152,
+    "height": 1728
+  },
+  {
+    "path": "public/images/anime-v22/hiyori.jpg",
+    "bytes": 99964,
+    "kind": "user-selected Pinterest reference",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Unchanged reference asset",
+    "width": 720,
+    "height": 1175
+  },
+  {
+    "path": "public/images/anime-v22/arisu.jpg",
+    "bytes": 155721,
+    "kind": "user-selected Pinterest reference",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Unchanged reference asset",
+    "width": 936,
+    "height": 1664
+  },
+  {
+    "path": "public/images/tools/kimi.svg",
+    "bytes": 773,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/lovable.svg",
+    "bytes": 801,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/railway.svg",
+    "bytes": 895,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/v0.svg",
+    "bytes": 555,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/vercel.svg",
+    "bytes": 225,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/gemini.svg",
+    "bytes": 2836,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/netlify.svg",
+    "bytes": 656,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/termux.svg",
+    "bytes": 327,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/google-ai-studio.svg",
+    "bytes": 833,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/reqable.svg",
+    "bytes": 4174,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/devin.svg",
+    "bytes": 3307,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/supabase.svg",
+    "bytes": 303,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/github.svg",
+    "bytes": 907,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/chatgpt.svg",
+    "bytes": 1687,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/codex.svg",
+    "bytes": 1769,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/zhipu-ai.svg",
+    "bytes": 3597,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/copilot.svg",
+    "bytes": 2019,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/deepseek.svg",
+    "bytes": 2164,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
+  },
+  {
+    "path": "public/images/tools/claude.svg",
+    "bytes": 1696,
+    "kind": "brand SVG",
+    "source": "docs/ASSETS_V2_2.md",
+    "rights": "See source-specific provenance and license notes",
+    "transform": "Local asset"
   }
 ]

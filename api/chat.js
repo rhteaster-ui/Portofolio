@@ -44,7 +44,7 @@ export function createChatHandler({ fetchImpl = fetch, now = Date.now } = {}) {
       if (!messages) return res.status(400).json({ error: 'Pesan tidak valid. Maksimum 1.200 karakter per pesan.' });
       const ip = String(req.headers?.['x-real-ip'] || req.headers?.['x-forwarded-for']?.split(',')[0] || req.ip || 'anonymous');
       if (limited(ip, now())) { res.setHeader('Retry-After', '60'); return res.status(429).json({ error: 'Terlalu banyak pesan. Tunggu sekitar satu menit.' }); }
-      const upstream = new URL(process.env.CHAT_API_URL || 'https://api.nexray.eu.cc/ai/gemini');
+      const upstream = new URL(process.env.CHAT_API_URL || 'https://api.nexray.eu.cc/ai/copilot');
       if (upstream.protocol !== 'https:' || upstream.username || upstream.password || upstream.hostname.startsWith('.')) throw new Error('CONFIG');
       upstream.searchParams.set('text', buildPrompt(messages));
       // Retain the complete public profile and newest user message when a GET URI needs a shorter context.

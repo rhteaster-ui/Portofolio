@@ -1,3 +1,14 @@
+# V2.2 — 2026-10-09
+
+- Preserve data inventory and original identity while brightening the existing visual direction.
+- Add generated landscape background, expandable photo stack, skippable session splash, six-state journey vignette, 19-node branded orbit, and accessible horizontal archive.
+- Integrate exact supplied Pinterest reference assets with provenance; preserve originals.
+- Autoplay muted video in view, loop, pause on exit/hidden tab; respect manual pause.
+- Apply Aboutme language refinement and shared public AI database-only instruction.
+- Switch default AI endpoint to Nexray Copilot; retain same-origin Vercel function, timeout, honest error/retry.
+- Add aligned OG banner, updated metadata, complete static archive details and Search Console deployment guide.
+- Fix mobile anime-card aspect-ratio overflow; preserve desktop/mobile controls and reduced-motion behavior.
+
 # 2.1.0 — Origin / revisi sesuai masukan pemilik
 
 - Memulihkan identitas pp-dev untuk header/footer/orbit dan pp asli untuk hero.

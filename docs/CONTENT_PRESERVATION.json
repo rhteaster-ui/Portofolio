@@ -1,0 +1,24 @@
+{
+  "counts": {
+    "PROJECTS": 16,
+    "JOURNEY_STEPS": 6,
+    "PEOPLE": 14,
+    "COMMUNITIES": 6,
+    "tools": 19
+  },
+  "unchangedFromV21": [
+    "PROJECTS",
+    "ECOSYSTEM",
+    "PEOPLE",
+    "COMMUNITIES"
+  ],
+  "unchangedOriginalIdentity": [
+    "pp.png",
+    "pp-dev.png"
+  ],
+  "revisedCopy": [
+    "PROFILE",
+    "JOURNEY_STEPS"
+  ],
+  "status": "verified"
+}

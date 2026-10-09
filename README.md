@@ -1,12 +1,22 @@
-# R_HMT V2.1 — Immersive Digital Archive
+# R_HMT V2.2 — Learning in Progress
 
-Portofolio React + TypeScript + Vite, static-first, dengan dua scene Three.js dan API chat serverless Vercel. Tidak membutuhkan database, Express, atau server yang terus berjalan.
+Portofolio React + TypeScript + Vite, static-first, dengan interaksi DOM/CSS dan API chat serverless Vercel. Tidak membutuhkan database, Express, atau server yang terus berjalan.
 
-## Revisi visual 2.1
+## Pembaruan 2.2
 
-Identitas header/footer dan inti orbit memakai `pp-dev.png` melalui turunan WebP. Hero memakai `pp.png` asli, dengan framing CSS; foto dan wajah tidak diregenerasi. Space Grotesk + Manrope variable menggantikan serif. Hero memiliki lapisan foto, pointer tilt, frame Three.js, dan gerak scroll. Progress perjalanan, reveal section, arsip asimetris, serta galeri berlapis melengkapi sistem motion. Tombol Motion di header menghentikan animasi halaman; reduced-motion dihormati.
+Pembaruan melanjutkan struktur V2.1: identitas asli, seluruh bagian, 16 proyek, 19 tools, 6 fase perjalanan, 14 orang, dan 6 komunitas tetap ada.
 
-Preview terbaru: `docs/screenshots/v2.1/`. Batas pengujian revisi: `docs/QA_V2_1.md`.
+- Hero lebih cerah dengan latar pegunungan, foto `pp.png` asli, ikon `pp-dev.png` asli, pointer tilt, dan stack yang bisa dibuka menuju tools/karya.
+- Journey memiliki enam titik interaktif yang mengganti isi layar perangkat serta detail fase. Konten fase tetap tersedia di HTML.
+- Orbit DOM menampilkan 19 logo brand di empat jalur. Mendukung drag, pemilihan tool, kategori, keyboard, serta pause. Tidak memerlukan WebGL.
+- Seluruh 16 proyek berada dalam rak horizontal: swipe/drag, panah, pencarian/filter, posisi aktif, dan dialog detail yang kembali ke posisi rak semula.
+- Lima gambar referensi Pinterest disertakan, termasuk duo Ayanokouji × Arisu. Tiga digunakan sebagai galeri utama, satu duo, satu alternatif Hiyori.
+- Splash singkat ±3 detik, sekali per sesi, bisa dilewati; diabaikan untuk reduced motion dan deep link.
+- Video autoplay muted dan loop saat terlihat. Bila browser menolak autoplay, tombol play tetap tersedia. Pause manual dihormati.
+- Copy mengikuti `Aboutme.txt`: “Learning in Progress.”, Indonesia dominan, konteks P5 dan motivasi personal singkat.
+- OG 1200×630, canonical, sitemap, robots, ProfilePage/Person JSON-LD, dan prerender lengkap. Panduan: `docs/SEO_DEPLOY.md`.
+
+Preview terbaru: `docs/screenshots/v2.2/`. Hasil pengujian dan batasnya: `docs/QA_V2_2.md`.
 
 ## Jalankan lokal
 
@@ -44,13 +54,13 @@ Semua variabel berikut **opsional dan hanya untuk server**. Tidak ada key yang h
 
 | Variabel | Default / penggunaan |
 | --- | --- |
-| `CHAT_API_URL` | `https://api.nexray.eu.cc/ai/gemini`; menggunakan GET dengan parameter `text` sesuai provider lama |
+| `CHAT_API_URL` | `https://api.nexray.eu.cc/ai/copilot`; menggunakan GET dengan parameter `text` sesuai endpoint yang diminta |
 | `CHAT_API_KEY` | Kosong. Isi hanya jika penyedia endpoint memang mensyaratkan Bearer token |
 | `CHAT_TIMEOUT_MS` | `18000`, dibatasi 1000–22000 ms |
 
 Jangan gunakan prefix `VITE_` untuk kredensial. `.env.local` tidak boleh masuk repository. Jika mengganti endpoint, pastikan kontraknya tetap GET `text` dan response JSON yang kompatibel, atau ubah adapter `api/chat.js` secara eksplisit.
 
-**Status AI:** adapter dan alur UI sudah diuji. Pengujian live dari lingkungan ini memperoleh respons upstream yang tidak dapat digunakan, sehingga jawaban AI nyata/follow-up nyata belum terverifikasi. Situs menampilkan error dan tombol coba lagi. Tidak ada jawaban palsu, chatbot lokal pengganti, atau klaim endpoint live. Baca `docs/QA_REPORT.md` untuk batas pengujian.
+**Status AI:** adapter dan alur UI sudah diuji. Pengujian live dari lingkungan ini memperoleh respons upstream yang tidak dapat digunakan, sehingga jawaban AI nyata/follow-up nyata belum terverifikasi. Situs menampilkan error dan tombol coba lagi. Tidak ada jawaban palsu, chatbot lokal pengganti, atau klaim endpoint live. Baca `docs/QA_V2_2.md` untuk batas pengujian.
 
 ## Ubah konten
 
@@ -62,20 +72,20 @@ Jangan gunakan prefix `VITE_` untuk kredensial. `.env.local` tidak boleh masuk r
 | Gambar teroptimasi | `public/images` |
 | Poster hero / video | `public/posters` |
 | Metadata, canonical, OG | `index.html`, `public/og-image.jpg`, `public/robots.txt`, `public/sitemap.xml` |
-| Warna, typography, breakpoint | `src/index.css`, `src/experience.css` |
+| Warna, typography, breakpoint | `src/index.css`, `src/experience.css`, `src/exploration.css` |
 | Geometri dan animasi 3D | `src/scenes/engine.ts` |
 
 ### Proyek
 
-Setiap proyek memiliki ID unik, judul, kategori, ringkasan, detail, URL, status, dan `visualType`. ID dipakai untuk deep link `#work-id`. Pilihan empat karya utama ada di `src/components/Archive.tsx`. Semua 16 karya tersedia melalui pencarian/filter dan tombol seluruh arsip. HTML tanpa JavaScript juga berisi indeks lengkap.
+Setiap proyek memiliki ID unik, judul, kategori, ringkasan, detail, URL, status, dan `visualType`. ID dipakai untuk deep link `#work-id`. Semua 16 karya langsung tersedia di rak `src/components/Archive.tsx`, dengan pencarian/filter. HTML tanpa JavaScript juga berisi indeks lengkap.
 
 Gunakan `ONLINE_UNVERIFIED` untuk link yang belum berhasil diverifikasi. Gunakan `ARCHIVED` jika demo tidak tersedia/diketahui tidak dapat diakses. Jangan mengganti menjadi `LIVE_VERIFIED` tanpa pemeriksaan nyata. Cover CSS/SVG adalah ilustrasi dan dilabeli demikian. Pixcraft dan Dewa Store dicatat sebagai kandidat di `docs/project-candidates.json`, belum diterbitkan karena tidak ada data terverifikasi.
 
 ### Anime dan video
 
-Ganti `image` pada entri `anime` dengan path lokal baru; pertahankan nama karakter dan provenance yang sesuai. Elaina adalah karakter utama, Arisu dan Hiyori pendamping. Artwork resmi yang disertakan merupakan aset referensi berhak cipta; tidak ditemukan lisensi penggunaan umum. Catatan sumber dan hak ada di `docs/ASSETS.md`.
+Ganti `image` pada entri `anime` dengan path lokal baru; pertahankan nama karakter dan provenance yang sesuai. Elaina adalah karakter utama, Arisu dan Hiyori pendamping. V2.2 memakai gambar referensi Pinterest yang diminta. Aset resmi versi sebelumnya tetap disertakan. Sumber dan catatan hak ada di `docs/ASSETS_V2_2.md` dan `docs/ASSETS.md`.
 
-Video tetap memakai URL Cloudinary dari instruksi sumber, tanpa transcode. Sumber 720×1280 ditampilkan pada frame 16:9 dengan **CSS rotate(-90deg)**. Poster upright terpisah. Player memiliki play/pause, mute, seek, fullscreen, error/retry, dan pause saat keluar viewport. Untuk mengganti sumber dengan video yang sudah landscape, ubah `rotation` menjadi `0` dan sesuaikan `.cote-video` pada CSS.
+Video tetap memakai URL Cloudinary dari instruksi sumber, tanpa transcode. Sumber 720×1280 ditampilkan pada frame 16:9 dengan **CSS rotate(-90deg)**. Poster upright terpisah. Player otomatis memuat dan memutar video secara muted saat terlihat, mengulang dengan loop, serta memiliki play/pause, mute, seek, fullscreen, error/retry, dan pause saat keluar viewport/tab tersembunyi. Untuk mengganti sumber dengan video yang sudah landscape, ubah `rotation` menjadi `0` dan sesuaikan `.cote-video` pada CSS.
 
 ## Struktur
 
@@ -94,9 +104,9 @@ Dokumen di `docs/legacy` adalah rekaman sumber lama, **bukan instruksi instalasi
 
 ## Motion dan fallback
 
-Poster tersedia sejak render awal. Scene di-load hanya saat mendekati viewport dan tidak diinisialisasi saat reduced motion, save-data, atau device memory rendah terdeteksi. WebGL2 gagal: poster dan semua kontrol teks tetap tersedia. Scene berhenti merender di luar viewport/tab tersembunyi; node berhenti saat hover/focus. Tombol jeda hanya muncul ketika 3D berhasil aktif.
+Poster tersedia sejak render awal. Scene di-load hanya saat mendekati viewport dan tidak diinisialisasi saat reduced motion, save-data, atau device memory rendah terdeteksi. WebGL2 gagal: poster dan semua kontrol teks tetap tersedia. Scene berhenti merender di luar viewport/tab tersembunyi; orbit berhenti saat hover/focus dan tetap dapat digeser manual. Tombol global Motion dan kontrol orbit tidak bergantung pada WebGL.
 
-Browser pengujian menonaktifkan WebGL. Fallback dan interaksi teks diuji, tetapi tampilan/FPS GPU perlu diuji di perangkat nyata. Ini dicatat sebagai **belum terverifikasi**, bukan lulus.
+Browser pengujian menonaktifkan WebGL. Stack foto, orbit DOM, dan interaksi diuji, tetapi aksen Three.js hero dan FPS pada perangkat fisik belum terverifikasi. Ini dicatat sebagai **belum terverifikasi**, bukan lulus.
 
 ## Referensi konfigurasi
 

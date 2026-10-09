@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { ArrowRight, ArrowUpRight, Search, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Search, X } from 'lucide-react';
 import { PROJECTS, statusLabels } from '../data';
 import type { Project } from '../types';
 import { Chapter, ExternalLink, Modal } from './Primitives';
-const featured = ['veritas', 'anime-quote', 'analisis-tanaman', 'repo-flow'];
 const categories = [{ id: 'all', name: 'Semua' }, { id: 'AI Tools', name: 'AI & eksplorasi' }, { id: 'Utilities', name: 'Tools' }, { id: 'Productivity', name: 'Produktivitas' }, { id: 'Archive Experiments', name: 'Eksperimen' }];
 export function WorkCover({ work }: { work: Project }) {
   return <div className={`work-cover cover-${work.id}`} aria-label={`Ilustrasi konsep ${work.name}`} role="img">
@@ -13,26 +12,30 @@ export function WorkCover({ work }: { work: Project }) {
   </div>;
 }
 export default function Archive() {
-  const [filter, setFilter] = useState('all'); const [query, setQuery] = useState(''); const [all, setAll] = useState(false);
+  const [filter, setFilter] = useState('all'); const [query, setQuery] = useState(''); const [position, setPosition] = useState(0); const shelf = useRef<HTMLDivElement>(null); const drag = useRef<{ x: number; scroll: number; moved: boolean } | null>(null);
   const [active, setActive] = useState<Project | null>(null);
   useEffect(() => { const sync = () => { if (location.hash.startsWith('#work-')) setActive(PROJECTS.find(p => `#work-${p.id}` === location.hash) || null); else setActive(null); }; sync(); window.addEventListener('hashchange', sync); return () => window.removeEventListener('hashchange', sync); }, []);
   const list = PROJECTS.filter(w => (filter === 'all' || w.category === filter) && `${w.name} ${w.summary} ${w.ecosystem.join(' ')}`.toLowerCase().includes(query.toLowerCase()));
-  const selection = !all && !query && filter === 'all' ? featured.map(id => PROJECTS.find(p => p.id === id)!) : list;
+  const selection = list;
+  useEffect(() => { shelf.current?.scrollTo({ left: 0, behavior: 'instant' }); setPosition(0); }, [filter, query]);
+  function move(index: number) { const el = shelf.current; const card = el?.children[Math.max(0, Math.min(selection.length - 1, index))] as HTMLElement; if (el && card) el.scrollTo({ left: card.offsetLeft - el.offsetLeft, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'off' ? 'instant' : 'smooth' }); }
   function open(work: Project) { setActive(work); history.replaceState(null, '', `#work-${work.id}`); }
   function close() { setActive(null); history.replaceState(null, '', '#archive'); }
   return <section className="archive section-pad" id="archive" aria-labelledby="archive-title">
     <div className="wrap">
       <Chapter number="04">THE DIGITAL ARCHIVE</Chapter>
-      <div className="section-heading"><h2 id="archive-title">Things I made.<br/><em>Things I learned.</em></h2><div><p>Jejak ide, percobaan, dan rasa penasaran.<br/>Tidak semuanya bertahan online. Ceritanya tetap ada.</p><span className="micro-note">{PROJECTS.length} ENTRIES / AN ONGOING EXPLORATION</span></div></div>
-      <div className="archive-toolbar"><div className="filter-list" aria-label="Filter karya">{categories.map(c => <button key={c.id} onClick={() => { setFilter(c.id); setAll(true); }} aria-pressed={filter === c.id}>{c.name}</button>)}</div><label className="search-box"><Search size={16}/><span className="sr-only">Cari arsip</span><input value={query} onChange={e => { setQuery(e.target.value); setAll(true); }} placeholder="Cari sebuah ide…" type="search"/></label></div>
+      <div className="section-heading"><h2 id="archive-title">Things I made.<br/><em>Things I learned.</em></h2><div><p>Kumpulan project dan eksperimen yang pernah aku buat. Beberapa masih bisa diakses, sebagian udah nggak aktif. Ada juga yang sebatas proof of concept.</p><span className="micro-note">{PROJECTS.length} ENTRIES / AN ONGOING EXPLORATION</span></div></div>
+      <div className="archive-toolbar"><div className="filter-list" aria-label="Filter karya">{categories.map(c => <button key={c.id} onClick={() => { setFilter(c.id); }} aria-pressed={filter === c.id}>{c.name}</button>)}</div><label className="search-box"><Search size={16}/><span className="sr-only">Cari arsip</span><input value={query} onChange={e => { setQuery(e.target.value); }} placeholder="Cari sebuah ide…" type="search"/></label></div>
       <p className="sr-only" role="status">{selection.length} karya ditemukan</p>
-      <div className={`works-grid ${selection.length > 4 ? 'works-expanded' : ''}`}>{selection.map((work, i) => <article className="work-card" key={work.id}>
+      <div className="shelf-navigation"><span>DRAG / SWIPE TO EXPLORE</span><div><span aria-live="polite">{selection.length ? String(position + 1).padStart(2, '0') : '00'} <small>/ {String(selection.length).padStart(2,'0')}</small></span><button onClick={() => move(position - 1)} disabled={position === 0} aria-label="Proyek sebelumnya"><ArrowLeft size={20}/></button><button onClick={() => move(position + 1)} disabled={position >= selection.length - 1} aria-label="Proyek berikutnya"><ArrowRight size={20}/></button></div></div>
+      <div ref={shelf} className="works-shelf" tabIndex={0} role="region" aria-label="Rak 16 proyek; geser atau gunakan tombol panah" onKeyDown={e => { if (e.target === e.currentTarget && ['ArrowRight','ArrowLeft','Home','End'].includes(e.key)) { e.preventDefault(); move(e.key === 'Home' ? 0 : e.key === 'End' ? selection.length - 1 : position + (e.key === 'ArrowRight' ? 1 : -1)); } }} onScroll={e => { const el = e.currentTarget; let closest = 0, distance = Infinity; Array.from(el.children).forEach((child, i) => { const d = Math.abs((child as HTMLElement).offsetLeft - el.offsetLeft - el.scrollLeft); if (d < distance) { closest = i; distance = d; } }); setPosition(closest); }} onPointerDown={e => { if (e.pointerType !== 'mouse' || e.button !== 0) return; drag.current = { x: e.clientX, scroll: e.currentTarget.scrollLeft, moved: false }; }} onPointerMove={e => { const d = drag.current; if (!d) return; if (Math.abs(e.clientX - d.x) > 8) { d.moved = true; e.currentTarget.setPointerCapture(e.pointerId); e.currentTarget.classList.add('shelf-dragging'); } if (d.moved) e.currentTarget.scrollLeft = d.scroll - (e.clientX - d.x); }} onPointerUp={e => { const moved = drag.current?.moved; drag.current = null; e.currentTarget.classList.remove('shelf-dragging'); if (moved) move(position); }} onPointerCancel={e => { drag.current = null; e.currentTarget.classList.remove('shelf-dragging'); }} onPointerLeave={() => { if (!drag.current?.moved) drag.current = null; }}>
+      {selection.map((work, i) => <article className={`work-card ${position === i ? 'shelf-current' : ''}`} key={work.id}>
         <button className="work-visual-button" onClick={() => open(work)} aria-label={`Baca cerita ${work.name}`}><WorkCover work={work}/><span className="work-open"><ArrowUpRight size={22}/></span></button>
         <div className="work-meta"><span>{String(i + 1).padStart(2, '0')} / {work.category}</span><span>{statusLabels[work.status]}</span></div>
         <button className="work-title" onClick={() => open(work)}><h3>{work.name}</h3><ArrowUpRight size={18}/></button><p>{work.summary}</p>
       </article>)}</div>
       {!selection.length && <div className="empty-state"><Search size={30}/><h3>Belum ketemu.</h3><p>Coba nama karya, teknologi, atau kata yang berbeda.</p><button className="text-link" onClick={() => { setQuery(''); setFilter('all'); }}>Reset pencarian <X size={15}/></button></div>}
-      <div className="archive-bottom"><span>Setiap karya adalah sebuah langkah.</span><button className="button button-outline" onClick={() => { setAll(x => !x); setFilter('all'); setQuery(''); }}>{all ? 'Tampilkan pilihan' : `Jelajahi semua arsip (${PROJECTS.length})`}<ArrowRight size={16}/></button></div>
+      <div className="archive-bottom"><span>Semua {PROJECTS.length} proyek tetap di arsip.</span><span className="micro-note">BUKA COVER UNTUK CERITA & TAUTAN</span></div>
       {active && <Modal label={active.name} onClose={close} className="work-modal"><WorkCover work={active}/><p className="eyebrow">DIGITAL ARCHIVE / {statusLabels[active.status]}</p><h2>{active.name}</h2><p className="modal-summary">{active.summary}</p><div className="tag-list">{active.ecosystem.map(t => <span key={t}>{t}</span>)}</div><dl className="work-story"><div><dt>Pertanyaan awal</dt><dd>{active.problem}</dd></div><div><dt>Apa yang dieksplorasi</dt><dd>{active.exploration}</dd></div><div><dt>Catatan arsip</dt><dd>{active.outcome}</dd></div></dl>{active.status !== 'ARCHIVED' && active.url && <><ExternalLink className="button button-dark" href={active.url}>{active.status === 'LIVE_VERIFIED' ? 'Buka demo' : 'Kunjungi tautan lama'}</ExternalLink><p className="micro-note">{active.status === 'LIVE_VERIFIED' ? 'Demo pernah diuji; ketersediaan dapat berubah.' : 'Ketersediaan dan fungsi tautan ini belum diverifikasi.'}</p></>}<p className="asset-note">Cover merupakan ilustrasi konsep, bukan screenshot produk.</p></Modal>}
     </div>
   </section>;

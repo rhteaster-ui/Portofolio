@@ -3,19 +3,26 @@ import { Maximize, Pause, Play, RotateCcw, Volume2, VolumeX, LoaderCircle, Exter
 import { VIDEO } from '../data/anime';
 const time = (n: number) => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`;
 export default function VideoPlayer() {
-  const video = useRef<HTMLVideoElement>(null); const frame = useRef<HTMLDivElement>(null);
+  const userPaused = useRef(false); const visible = useRef(false); const video = useRef<HTMLVideoElement>(null); const frame = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState(false); const [started, setStarted] = useState(false); const [muted, setMuted] = useState(true);
   const [loading, setLoading] = useState(false); const [error, setError] = useState(''); const [duration, setDuration] = useState(0); const [current, setCurrent] = useState(0); const [expanded, setExpanded] = useState(false);
   useEffect(() => {
-    const el = video.current; const io = new IntersectionObserver(entries => { if (!entries[0].isIntersecting && el && !el.paused) el.pause(); }, { threshold: 0 }); if (frame.current) io.observe(frame.current);
-    const change = () => { if (document.hidden) el?.pause(); }; document.addEventListener('visibilitychange', change);
+    const el = video.current;
+    const playWhenVisible = async () => { if (!el || !visible.current || document.hidden || userPaused.current) return;
+      if (!el.getAttribute('src')) { el.src = VIDEO.url; el.load(); }
+      setStarted(true); setLoading(true);
+      try { await el.play(); } catch { setLoading(false); }
+    };
+    const io = new IntersectionObserver(entries => { visible.current = entries[0].isIntersecting; if (visible.current) void playWhenVisible(); else el?.pause(); }, { threshold: .2 }); if (frame.current) io.observe(frame.current);
+    const change = () => { if (document.hidden) el?.pause(); else void playWhenVisible(); }; document.addEventListener('visibilitychange', change);
     const escape = (e: KeyboardEvent) => { if (e.key === 'Escape') setExpanded(false); }; window.addEventListener('keydown', escape);
     return () => { io.disconnect(); document.removeEventListener('visibilitychange', change); window.removeEventListener('keydown', escape); };
   }, []);
   useEffect(() => { if (!expanded) return; const old = document.body.style.overflow; document.body.style.overflow = 'hidden'; return () => { document.body.style.overflow = old; }; }, [expanded]);
   async function toggle() {
     const el = video.current; if (!el) return;
-    if (!el.paused) { el.pause(); return; }
+    if (!el.paused) { userPaused.current = true; el.pause(); return; }
+    userPaused.current = false;
     setError(''); setStarted(true); setLoading(true);
     try { if (!el.getAttribute('src')) { el.src = VIDEO.url; el.load(); } await el.play(); }
     catch { setLoading(false); setError('Video belum dapat diputar. Coba lagi atau buka video asli.'); }
@@ -29,7 +36,7 @@ export default function VideoPlayer() {
   return <div className={`video-player ${expanded ? 'video-expanded' : ''}`} ref={frame}>
     <div className="cote-frame">
       <img className={`video-poster ${started && !error ? 'poster-hidden' : ''}`} src={VIDEO.poster} alt="Adegan Classroom of the Elite dari video pilihan R_HMT" width="1280" height="720" loading="lazy"/>
-      <video ref={video} className="cote-video" style={{ transform: `translate(-50%, -50%) rotate(${VIDEO.rotation}deg)` }} playsInline muted={muted} preload="none" aria-label="Video fan edit Classroom of the Elite" onPlaying={() => { setPlaying(true); setLoading(false); }} onPause={() => setPlaying(false)} onWaiting={() => setLoading(true)} onLoadedMetadata={e => setDuration(e.currentTarget.duration)} onTimeUpdate={e => setCurrent(e.currentTarget.currentTime)} onEnded={() => { setPlaying(false); setLoading(false); }} onError={() => { setError('Video sedang tidak tersedia. Coba lagi atau buka video asli.'); setLoading(false); setPlaying(false); }}/>
+      <video ref={video} className="cote-video" style={{ transform: `translate(-50%, -50%) rotate(${VIDEO.rotation}deg)` }} autoPlay loop playsInline muted={muted} preload="none" aria-label="Video fan edit Classroom of the Elite" onPlaying={() => { setPlaying(true); setLoading(false); }} onPause={() => setPlaying(false)} onWaiting={() => setLoading(true)} onLoadedMetadata={e => setDuration(e.currentTarget.duration)} onTimeUpdate={e => setCurrent(e.currentTarget.currentTime)} onEnded={() => { setPlaying(false); setLoading(false); }} onError={() => { setError('Video sedang tidak tersedia. Coba lagi atau buka video asli.'); setLoading(false); setPlaying(false); }}/>
       {!playing && !error && <button className="video-play" aria-label="Putar video Classroom of the Elite" onClick={toggle}>{loading ? <LoaderCircle className="spin" size={28}/> : <Play size={26} fill="currentColor"/>}</button>}
       {error && <div className="video-error" role="alert"><p>{error}</p><button className="button" onClick={retry}><RotateCcw size={16}/>Coba lagi</button><a href={VIDEO.url} target="_blank" rel="noopener noreferrer">Buka video asli <ExternalLink size={14}/></a></div>}
       <span className="video-caption">PERSONAL CUT / COTE</span>
