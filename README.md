@@ -1,4 +1,4 @@
-# R_HMT V2.6.1 — Learning in Progress
+# R_HMT V2.7.0 — Learning in Progress
 
 Portofolio React, TypeScript, dan Vite dengan konsep ruang kaca, graphite, silver, serta light mode pearl white. Dark mode mengikuti referensi terbaru pengguna. Nomor versi hanya dicatat di dokumentasi dan metadata paket; tidak ada badge versi di halaman.
 
@@ -11,7 +11,7 @@ Isi terbaru: **18 karya, 6 fase perjalanan, 19 tools, 14 orang, dan 5 komunitas*
 - Renderer Three.js seluruh halaman dilepas dari jalur runtime. Scene dan tes lama tetap disertakan sebagai riwayat teknis; pengunjung tidak mengunduh bundle Three.js atau world dari entry aktif.
 - Orbit menampilkan seluruh 19 logo pada dua jalur yang terpisah, dengan satu rail silver tambahan. Ikon tetap tegak. Drag, momentum, seleksi, kategori, reset, pause, keyboard, dan deskripsi tool tersedia. Posisi node memakai transform GPU; satu loop lokal berjalan sekitar 30 pembaruan per detik saat dibutuhkan.
 - Orbit berhenti saat tidak terlihat, tab tersembunyi, intro/dialog terbuka, pointer ditekan/drag atau seleksi aktif, motion dijeda, atau reduced motion dipilih. Resize memperbarui posisi meski orbit sedang diam.
-- Splash tampil **setiap refresh**, termasuk deep link. Frame kaca dirakit, avatar asli masuk, lalu hero dibuka berurutan. Aset utama dan font masuk loading progress; tersedia skip/Escape, batas tunggu 4 detik, dan versi statis singkat untuk reduced motion.
+- Splash tampil **setiap refresh**, termasuk deep link. Frame kaca dirakit, avatar asli masuk, lalu hero dibuka berurutan. Aset utama dan font masuk loading progress; tersedia skip/Escape, progres presentasi 1–100%, minimal 3,4 detik saat aset siap, dan batas tunggu 5,2 detik, dan versi statis singkat untuk reduced motion.
 - Stack foto bisa dibuka, merespons pointer, dan mengubah sudut mengikuti scroll. Gerak idle kecil dan pantulan bergerak memakai transform/opacity.
 - Journey memakai ponsel asal dan enam modul kaca. Scroll mengendalikan posisi/sudut workspace; pergantian fase mengubah layar, perangkat, modul aktif, dan sinyal. Narasi lengkap enam fase tetap tersedia.
 - Karya berada dalam rak horizontal: tiga kartu desktop, dua tablet, satu kartu dengan petunjuk kartu berikutnya pada HP. Swipe/drag, panah, slider, filter, pencarian, keyboard, dan deep link tetap tersedia. Cover mendapat depth sesuai posisi. Cover merupakan ilustrasi konsep, bukan screenshot produk.
@@ -35,6 +35,17 @@ Isi terbaru: **18 karya, 6 fase perjalanan, 19 tools, 14 orang, dan 5 komunitas*
 ## Polish V2.6.1
 
 Transisi penutup hero dimulai dari posisi awal Selected Works, sehingga hero pendek di layar desktop tinggi tidak meredup sebelum scroll. Gerak otomatis komentar menyimpan posisi pecahan sendiri agar tetap bergerak ketika browser membulatkan `scrollLeft`. Pembaruan visual rail dibatasi sekitar 30 Hz dan ukuran rail diukur saat resize/wake; fokus, sentuhan, dan navigasi manual tetap menjeda gerak.
+
+## Polish dan interaksi V2.7
+
+- Splash tetap muncul setiap refresh. Loading presentasi 1–100% menunggu aset utama, memberi waktu choreography 3,4 detik, lalu menahan 100% selama 240 ms sebelum transisi keluar 520 ms. Jika jaringan lambat, gate dilepas paling lambat sekitar 6 detik; ini tidak mengklaim seluruh aset halaman sudah diunduh. Reduced motion memakai 300–650 ms plus transisi singkat. Skip dan Escape tetap langsung tersedia.
+- Avatar splash berada tepat di pusat frame, panel kaca lebih teratur, dan label persen menggunakan angka tabular agar tidak bergeser.
+- Garis assembly bagian 04 dipotong dengan SVG mask pada tepi hub/ikon. Kartu punya lapisan dasar solid, sehingga jalur tidak terlihat menembus kaca. Panel penopang dibuat lebih ringkas; posisi ikon tetap terikat ke jalur.
+- Tombol **Jalankan alur** memainkan Source → Build → Deploy selama tiga fase: signal mengalir, kelompok teknologi terangkat, dan indikator tahap berubah bersama. Ini visualisasi frontend, bukan build/deploy server sungguhan. Timernya berhenti saat offscreen, tab tersembunyi, dialog/splash aktif, atau motion dijeda. Reduced motion langsung menampilkan tahap akhir. Bisa diputar ulang.
+- Stack foto merespons swipe horizontal pada touch/pen dan panah keyboard pada foto depan, selain klik foto belakang/pilihan. Scroll vertikal tetap native. Pergantian depth sekarang memakai transition, tanpa idle animation yang menimpa perpindahan slot. Pantulan mengikuti posisi pointer; label lokasi/identitas dirapikan.
+- Enam modul kaca Journey bisa diklik atau dioperasikan lewat keyboard untuk mengubah chapter, layar ponsel, sudut perangkat, modul aktif, dan narasi yang sama. Enam fase asli tetap utuh.
+- Tiga rating **Contoh**, semuanya lima bintang: Rizky — “anjayy keren mat”; Nanda — “tutor dung mat”; Fajar — “infokan promt”. Contoh tersedia sejak prerender, ikut rail horizontal, tidak dikirim ke Redis, dan tidak dihitung dalam jumlah/rerata rating asli.
+- Tidak ada dependency runtime baru, renderer WebGL baru, atau konfigurasi wajib tambahan. Rating publik cukup **dua env Upstash** yang dijelaskan di bawah. API, metadata sosial, SEO, konten, dan transisi hero → Selected Works yang telah disetujui dipertahankan.
 
 ## Jalankan lokal
 
@@ -113,10 +124,10 @@ Video mempertahankan URL Cloudinary asli. Source portrait ditampilkan landscape 
 
 ## Verifikasi dan batasnya
 
-Production build dan **49 tes lulus**. Empat tes tambahan V2.6 memeriksa transisi chapter, hero HP yang panjang, pemilihan canonical, dan penolakan URL canonical tidak valid. Empat tes V2.5 memeriksa jarak 19 target orbit pada berbagai ukuran, momentum 30/60/120 Hz, kondisi penghentian render, serta koordinat rail. Tes lain mencakup backend, Lua, native shelf, dan kontrak geometri historis. Tes geometri lama tidak membuktikan tampilan baru.
+Production build dan **52 tes lulus**. Tiga tes V2.7 memeriksa progres intro saat aset cached, aset lambat, batas tunggu, dan reduced motion. Empat tes tambahan V2.6 memeriksa transisi chapter, hero HP yang panjang, pemilihan canonical, dan penolakan URL canonical tidak valid. Empat tes V2.5 memeriksa jarak 19 target orbit pada berbagai ukuran, momentum 30/60/120 Hz, kondisi penghentian render, serta koordinat rail. Tes lain mencakup backend, Lua, native shelf, dan kontrak geometri historis. Tes geometri lama tidak membuktikan tampilan baru.
 
 Audit versi terbaru mencatat entitas, pelestarian aset identitas, empat API, satu H1, ID, referensi aset, SVG, metadata sosial, dan video. Hasil terukur ada di laporan JSON terbaru.
 
 **QA tampilan/FPS browser belum dijalankan.** Browser QA yang diizinkan workflow tidak tersedia. [Panduan Sites](skill://plugin_connector_1p_689987207de08191979cf68eca2941c6/sites/SKILL.md) menyatakan: “If `$control-browser` is unavailable, skip browser QA: do not start a preview server, install a browser, or improvise another browser-control path.” Karena itu kemiripan 100%, FPS perangkat, autoplay nyata, serta interaksi browser belum dapat dinyatakan lulus. Screenshot lama dalam dokumentasi bukan hasil tampilan baru.
 
-Laporan terbaru: `docs/QA_V2_6_1.md`, `docs/static-validation-v2.6.1.json`, `docs/build-output-v2.6.1.txt`, dan `docs/test-output-v2.6.1.txt`. Riwayat perubahan ada di `CHANGELOG.md`. Referensi dan aset hasil imagegen adalah acuan visual, bukan bukti runtime.
+Laporan terbaru: `docs/QA_V2_7.md`, `docs/static-validation-v2.7.json`, `docs/build-output-v2.7.txt`, dan `docs/test-output-v2.7.txt`. Riwayat perubahan ada di `CHANGELOG.md`. Referensi dan aset hasil imagegen adalah acuan visual, bukan bukti runtime.

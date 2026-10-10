@@ -1,3 +1,13 @@
+## 2.7.0 — 10 Oktober 2026
+
+- Preserve the approved visual direction and native hero cover transition.
+- Add bounded 1–100% splash choreography, centered identity, and smaller glass panel offsets.
+- Mask technology wires at optical edges; ground translucent tiles on solid surfaces.
+- Add user-triggered Source/Build/Deploy choreography with offscreen/visibility/motion suspension.
+- Add touch photo swipes, front-card arrow keys, pointer reflections, and interactive Journey modules.
+- Add three clearly marked five-star examples to the horizontal review rail; real rating totals and Redis remain separate.
+- Keep two required Upstash values and all existing API/SEO/assets/content.
+
 ## 2.6.1 — 10 Oktober 2026
 
 - Prevent premature hero dimming when Selected Works is initially visible on a tall desktop viewport.
