@@ -19,7 +19,7 @@ export function Modal({ children, label, onClose, className = '' }: { children: 
     const focus = document.activeElement as HTMLElement | null;
     const dialog = ref.current; dialog?.showModal();
     const old = document.body.style.overflow; document.body.style.overflow = 'hidden';
-    return () => { dialog?.close(); document.body.style.overflow = old; focus?.focus(); };
+    return () => { dialog?.close(); document.body.style.overflow = old; focus?.focus({ preventScroll: true }); };
   }, []);
   return <dialog ref={ref} className={`modal ${className}`} aria-label={label} onCancel={onClose} onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
     <div className="modal-content"><button className="icon-button modal-close" onClick={onClose} aria-label="Tutup panel"><X size={20}/></button>{children}</div>

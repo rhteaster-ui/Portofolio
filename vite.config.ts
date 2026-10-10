@@ -6,7 +6,7 @@ function localApi(): Plugin {
     configureServer(server) {
       server.middlewares.use('/api', async (req, res, next) => {
         const route = req.url?.split('?')[0];
-        if (!['/chat', '/health', '/contact'].includes(route || '')) return next();
+        if (!['/chat', '/health', '/contact', '/ratings'].includes(route || '')) return next();
         let raw = '';
         try {
           for await (const chunk of req) {
@@ -28,11 +28,11 @@ function localApi(): Plugin {
   };
 }
 export default defineConfig(({ mode }) => {
-  const localEnv = loadEnv(mode, process.cwd(), 'CHAT_');
+  const localEnv = { ...loadEnv(mode, process.cwd(), 'CHAT_'), ...loadEnv(mode, process.cwd(), 'UPSTASH_') };
   for (const [key, value] of Object.entries(localEnv)) if (process.env[key] === undefined) process.env[key] = value;
   return {
   plugins: [react(), localApi()],
   server: { host: '0.0.0.0', port: 4173, allowedHosts: ['terminal.local'], watch: { ignored: ['**/docs/**'] } },
-  build: { target: 'es2022', rollupOptions: { output: { manualChunks: { three: ['three'] } } } }
+  build: { target: 'es2022', emptyOutDir: true, rollupOptions: { output: { manualChunks: { three: ['three'] } } } }
   };
 });

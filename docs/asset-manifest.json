@@ -750,5 +750,169 @@
     "source": "docs/ASSETS_V2_2.md",
     "rights": "See source-specific provenance and license notes",
     "transform": "Local asset"
+  },
+  {
+    "path": "public/components/works/analisis-tanaman.svg",
+    "bytes": 1198,
+    "sha256": "0e17b21d727a097a3d4b6c2995b5b2443506bbdf2723efb726fafd0bc342957d",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/anime-quote.svg",
+    "bytes": 1289,
+    "sha256": "7c447b1129c647e65c502cc424f7443fe07bb8cc276381fbacc92b1246e259c1",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/cek-kartu.svg",
+    "bytes": 1188,
+    "sha256": "12288abf3f20af8aa1a94eb032c9796643423c50236387b6228900d0685c3c73",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/fake-loby-ml.svg",
+    "bytes": 1983,
+    "sha256": "6c9017a87229d8e8501cef2d6be4fb5146417311548792ad9aff156cb19ab0a6",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/hd-upscale.svg",
+    "bytes": 2085,
+    "sha256": "a235be460cf73a0337464b323b7b305e732b0e76f3012f04e4aed44607892b0d",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/image-to-prompt.svg",
+    "bytes": 1245,
+    "sha256": "ea2b764089e92a9b99fbf8e9574c2b93b9785b498c2b8c263f1e90b611e0b5f6",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/indosawit-news.svg",
+    "bytes": 1831,
+    "sha256": "27cedfb8a6fdfa54d53d0fcf2d58bba9bbdf6a6b1e2b577fe3ac8b6d89fc3bda",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/quickfake.svg",
+    "bytes": 1232,
+    "sha256": "6542c485210ad6b4cf2058d371698c0efa1837bccac5ffaafb8f7ea5fcee77e4",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/repo-flow.svg",
+    "bytes": 1240,
+    "sha256": "d483170c78e17246ac42a08912078629c6f0a1d928120a56e3d2d3743b17d801",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/screenshot-web.svg",
+    "bytes": 1644,
+    "sha256": "98a01dce2dcd8bf18a8d5b06d065903efc40c0e92160dbb6ffdd64b4a52054fa",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/soundify.svg",
+    "bytes": 4530,
+    "sha256": "79616225ef5d28a096d2e161b420b7742252b1a99e3b1be3be5d98061d9d872b",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/tierlist-maker.svg",
+    "bytes": 2883,
+    "sha256": "37cf177b7b2a0baee24d70bcec54fd9a9679b5bf24aa616c6853bdce96e500c7",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/tugasku-lite.svg",
+    "bytes": 1733,
+    "sha256": "d39e52d5893c92c32f56e3384343b84fe675809e3886ee8317a0213ea67c0fe6",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/tugasku-pro.svg",
+    "bytes": 1971,
+    "sha256": "58dd0f61da975b1d43a187cb30ab0606af3998c25d16b53a415c7d8673611ab1",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/veritas.svg",
+    "bytes": 2032,
+    "sha256": "c995c14d34ab2cac7f79bd1e548a6848ad4781c5e388fbf02d3e854c820c032d",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/components/works/web-anime.svg",
+    "bytes": 1315,
+    "sha256": "2fab9167776790971f66bf734ccbee5d86a5ac47e304048629015d1761e60752",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/icons/relay.svg",
+    "bytes": 261,
+    "sha256": "cfb180f264639ddfd9c5e58594b8bbb5fac962b10882e5492510534fc31905be",
+    "kind": "original code-created portfolio graphic",
+    "source": "scripts/generate-components.mjs or RelayMark.tsx",
+    "rights": "Project artwork",
+    "transform": "Original SVG geometry"
+  },
+  {
+    "path": "public/og-tech.png",
+    "bytes": 1940599,
+    "sha256": "d86d1a5f27c6511db4d35e9535fae67e1cc38ba2df746c7df69879663ca736fd",
+    "kind": "imagegen sharing artwork",
+    "source": "ImageGen V2.3 tech OG; see ASSETS_V2_3.md",
+    "rights": "Project artwork; referenced character rights remain with respective owners",
+    "transform": "Unchanged ImageGen output",
+    "width": 1730,
+    "height": 909
   }
 ]

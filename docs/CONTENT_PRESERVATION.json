@@ -1,4 +1,6 @@
 {
+  "version": "2.4.1",
+  "baseline": "checkpoints/r-hmt-v24-source-delivery.zip",
   "counts": {
     "PROJECTS": 16,
     "JOURNEY_STEPS": 6,
@@ -6,19 +8,55 @@
     "COMMUNITIES": 6,
     "tools": 19
   },
-  "unchangedFromV21": [
+  "unchangedFromV22": [
     "PROJECTS",
+    "JOURNEY_STEPS",
     "ECOSYSTEM",
     "PEOPLE",
     "COMMUNITIES"
   ],
-  "unchangedOriginalIdentity": [
-    "pp.png",
-    "pp-dev.png"
+  "unchangedOriginalIdentity": {
+    "pp.png": {
+      "unchanged": true,
+      "sha256": "44e6fd7ff6accb885bbdb236ca4a9472b92e1c471050c4f89e0526b0762501da"
+    },
+    "pp-dev.png": {
+      "unchanged": true,
+      "sha256": "20629e18832d6f6db033a7a291d35ccaf622db569645685200c63bee224e9d57"
+    }
+  },
+  "requestedRevisions": [
+    "continuous chapter camera path",
+    "retargetable Journey turn and network signal",
+    "consistent work shelf navigation and native gestures",
+    "reachable mobile snap points and resize alignment"
   ],
-  "revisedCopy": [
-    "PROFILE",
-    "JOURNEY_STEPS"
+  "status": "verified",
+  "unchangedFromV23": [
+    "PROJECTS",
+    "JOURNEY_STEPS",
+    "ECOSYSTEM",
+    "PEOPLE",
+    "COMMUNITIES",
+    "shared/profile.json"
   ],
-  "status": "verified"
+  "unchangedPublicAssets": 102,
+  "unchangedFromV231": [
+    "shared/profile.json",
+    "shared/knowledge.mjs",
+    "shared/content.json",
+    "api/ratings.js",
+    "api/health.js",
+    "api/chat.js",
+    "api/contact.js"
+  ],
+  "unchangedFromV24": [
+    "shared/content.json",
+    "shared/knowledge.mjs",
+    "shared/profile.json",
+    "api/chat.js",
+    "api/contact.js",
+    "api/health.js",
+    "api/ratings.js"
+  ]
 }
