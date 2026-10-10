@@ -1,3 +1,24 @@
+# V2.5 — 2026-10-10
+
+- Apply the user’s dark glass architectural reference and complementary pearl/silver light mode. Remove the visible version badge.
+- Generate optimized background assets; replace the full-page Three.js runtime with image-backed depth, CSS perspective and component-local motion. Original engines remain historical source.
+- Recompose hero text, original portrait and full 19-tool universe; reflow tablet/mobile independently. Separate orbit lanes and upright native targets; use GPU transforms, frame-rate-independent momentum and visibility/state gating.
+- Show the lightweight glass assembly splash on every refresh, including deep links; retain skip and short static reduced-motion behavior.
+- Keep all 16 horizontal works, six Journey phases, three character cards, 14 people and six communities. Add native work-cover depth and a scroll-driven phone/modular workspace.
+- Restore uncropped Kings & Queen artwork. Preserve autoplay/loop audio-only video after the gallery. Preserve rating anti-spam and chat adapters.
+- Refine About from the user’s source and replace “nggak” with “tidak”; all facts, links and original assets remain available.
+- Add matching OG artwork using original identity assets. Retain canonical, sitemap, robots and prerender.
+- Build and 42 tests pass. Content/asset audit passes. Browser/FPS, live Upstash and deployment are unverified.
+
+# V2.4.2 — 2026-10-10
+
+- Wait for the intro stage's first successful render; preload all hero textures, and handle live reduced-motion changes.
+- Fit immediately when a viewport shrinks. Correct measured hero and character-frame clipping with shared framing/choreography constants and full geometry checks.
+- Refresh cached viewport layout on native accordion changes, main/header resize, and keyboard state changes.
+- Stop orbit inertia on tool focus/hover/selection. Restore native fallbacks if shader compilation or scene rendering fails.
+- Keep clipboard feedback separate from chat request errors and prevent invalid retries after an assistant answer. Reject blank rating names before the request and expose required star selection to assistive technology.
+- Preserve all data, APIs, original identity assets, and 102 public files from V2.4.1. Build, 38 tests, content validation, and delivery integrity recorded; browser/GPU and live Upstash remain unverified.
+
 # V2.4.1 — 2026-10-10
 
 - Interpolate the room camera between actual section anchors with continuous velocity/acceleration; preserve reversible native scroll and continuous floor-signal travel.

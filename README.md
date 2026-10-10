@@ -1,66 +1,36 @@
-# R_HMT V2.4.1 — Learning in Progress
+# R_HMT V2.5 — Learning in Progress
 
-Portofolio React, TypeScript, Vite, dan Three.js dengan arah visual putih dingin, silver, serta electric blue. Struktur dan isi V2.2 dipertahankan: 16 karya, 6 fase perjalanan, 19 tools, 14 orang, dan 6 komunitas. Foto `pp.png` dan avatar `pp-dev.png` asli tetap disertakan; tampilan menggunakan turunan WebP yang sudah ada.
+Portofolio React, TypeScript, dan Vite dengan konsep ruang kaca, graphite, silver, serta light mode pearl white. Dark mode mengikuti referensi terbaru pengguna. Nomor versi hanya dicatat di dokumentasi dan metadata paket; tidak ada badge versi di halaman.
 
-## Penyempurnaan 2.4.1
+Seluruh isi tetap tersedia: **16 karya, 6 fase perjalanan, 19 tools, 14 orang, dan 6 komunitas**. Seluruh 102 aset publik sebelumnya tetap identik, termasuk `pp.png`, `pp-dev.png`, gambar karakter, dan duo Kings & Queen. Tampilan memakai turunan WebP yang sudah tersedia. Perubahan bahasa mengikuti `Aboutme.txt`, dengan “tidak” menggantikan “nggak” serta konteks personal tetap dipertahankan.
 
-- Kamera background menghubungkan posisi seluruh bagian menjadi lintasan scroll yang berkelanjutan, termasuk kembali ke atas. Sinyal lantai tidak lagi mengulang posisi pada pergantian chapter. Scroll halaman tetap native.
-- Putaran Journey mempertahankan sudut dan momentum ketika fase dipilih berulang atau berbalik arah. Layar berganti di tengah transisi; sinyal fisik bergerak di sepanjang sambungan enam modul, disertai respons emissive yang berurutan.
-- Slider karya mengikuti tujuan yang dipilih segera. Panah dan keyboard bisa dipakai berulang saat smooth scroll masih berjalan, sementara frame 3D yang sedang melewati fokus tetap mengikuti posisi rak sebenarnya.
-- Mouse drag memakai pointer capture, mendeteksi arah horizontal, mematikan snap hanya selama drag, lalu memilih posisi snap terdekat dari scroll aktual. Touch swipe dan scroll vertikal tetap native; klik keyboard tidak ikut diblokir setelah drag.
-- Posisi karya dibatasi pada panjang rak sebenarnya dan disejajarkan kembali setelah resize atau pergantian breakpoint. Filter dan pencarian tetap mengembalikan rak ke awal.
+## Pembaruan visual dan motion
 
-Seluruh data, API, dan 102 aset publik V2.4 tetap identik. Production build dan 34 tes tercatat di `docs/QA_V2_4_1.md`. Pemeriksaan visual browser/GPU belum tersedia.
-
-## Penyempurnaan 2.4
-
-- Pertahankan palet cool white, silver, electric blue serta susunan bagian. Hero mendapat inventaris 16 karya/19 tools dan badge Vibe coding; portrait asli ditampilkan pada frame depan melalui UV crop tanpa mengubah file gambar.
-- Splash memakai bezel avatar lingkaran, rim chrome/ceramic, dan arc blue fisik. Fragmen, gate kesiapan, skip, serta choreography exit tetap tersedia.
-- Journey merakit workspace nyata: ponsel asal, laptop berengsel, keyboard/trackpad, layar fase, dan enam modul yang berubah posisi. Perubahan fase mengatur susunan objek, bukaan layar, jaringan modul, serta kamera.
-- Orbit memiliki empat rail berpenampang tabung, runner fisik, tile berketebalan, label core, dan respons kategori. Seluruh 19 logo, interaksi drag/inertia/seleksi, dan fallback grid tetap tersedia.
-- My Work tetap rak horizontal. Posisi dan kecepatan geseran mengendalikan yaw/depth frame, fokus membawa karya ke depan, dan slider posisi bisa dipakai untuk menjangkau seluruh hasil filter.
-- Background ruang 3D menggunakan shader sinyal pada sambungan lantai, material/glass panel, kamera berdasarkan chapter, dan gerak idle yang dibatasi. Motion off/reduced motion/save-data tetap diperhatikan.
-- Gambar fallback dipertahankan sampai tekstur stage siap. Gagal memuat tekstur tidak menyembunyikan fallback. Pengukuran bounds dibatch sebelum perubahan style; resize DPR tidak menambah loop render kedua. Diagnostik draw call/triangle mencatat total frame lintas viewport.
-- Empat tes choreography baru menguji frustum workspace berikut engsel dan platform melalui transisi chapter, frame karya pada pointer/swipe ekstrem, batas yaw, dan paused camera. Framing diuji secara numerik pada lebar stage 284–570 px; ini bukan browser screenshot atau benchmark.
-
-Semua data, konfigurasi API, dan 102 aset publik dari V2.3.1 tetap utuh. Hasil build, 28 tes, dan preservasi ada di `docs/QA_V2_4.md`. Tampilan/GPU aktual masih perlu browser QA.
-
-## Penyempurnaan 2.3.1
-
-- Perbaiki selector scene agar status renderer pada HTML tidak ikut dirender dan tidak menyembunyikan gambar fallback panel detail.
-- Splash menunggu foto/font dan kesiapan renderer/fallback. Fragmen dirakit berurutan, lalu keluar lewat transformasi 3D. Minimum 2,8 detik, dengan waktu rakitan setelah kesiapan; batas tunggu 6 detik, fade 650 ms, dan skip tetap tersedia.
-- Inertia orbit memakai integrasi waktu nyata agar jarak putaran konsisten pada 30/60/120 Hz. Drag bisa dimulai dari logo; gerakan vertikal tetap untuk scroll halaman, dan drag tidak menjadi klik tool.
-- Hit area logo memakai kedalaman kamera sebenarnya; titik di luar stage atau di belakang kamera tidak menghasilkan target klik tak terlihat. Tap ulang/Escape melepas seleksi.
-- Journey membalik perangkat dan mengganti isi layar di tengah putaran. Posisi kamera juga berubah mengikuti scroll.
-- Renderer berhenti ketika hanya ruang statis/karya yang sudah diam atau panel dialog terbuka. Environment reflection dibuat kembali setelah context restore; resource shadow dibersihkan saat stage dilepas.
-- Audio video dipasang langsung pada elemen media dalam gesture pengguna, tanpa menambah tombol atau kontrol lain.
-
-Semua isi dan aset dari V2.3 tetap utuh. Verifikasi matematika/interaksi pada kode tersedia di `docs/QA_V2_3_1.md`; QA browser/GPU masih belum tersedia.
-
-## Yang berubah
-
-- Background ruang digital dibuat dari geometri 3D: frame silver, panel transparan, lantai perspektif, pencahayaan, dan kamera yang mengikuti bagian serta posisi scroll. Background pegunungan tidak lagi dipakai oleh tampilan aktif.
-- Hero memakai empat objek browser frame bertekstur foto asli, kode, Elaina dari galeri, dan ilustrasi karya. Membuka stack mengubah posisi objek dalam ruang 3D; pointer dan scroll memengaruhi susunannya.
-- Splash merakit fragmen silver dan blue menjadi frame identitas. Memuat foto/font utama, muncul sekali per sesi, bisa dilewati dengan tombol atau Escape, dan diabaikan pada deep link atau reduced motion.
-- Journey memakai model perangkat 3D dengan enam keadaan layar. Selector dan teks fase memiliki ruang sendiri, termasuk pada mobile.
-- Orbit memakai empat jalur 3D dan seluruh 19 logo brand lokal. Drag, inertia, pemilihan node, kategori, keyboard, reset, serta pause tetap tersedia.
-- Karya berada dalam rak horizontal dengan frame fisik 3D, perspektif sesuai posisi, focus depth, swipe/drag, panah, pencarian, filter, deep link, dan dialog detail. Cover adalah ilustrasi konsep yang dibuat khusus, bukan screenshot produk.
-- My Waifu memakai frame 3D dan deskripsi karakter singkat. Referensi sumber disimpan dalam dokumentasi aset, tidak ditampilkan pada galeri.
-- Video langsung setelah galeri berbentuk banner 16:9, autoplay muted, loop, dan hanya memiliki tombol audio. Judul masuk dari atas saat hover, atau muncul 2,6 detik setelah sentuhan. Banner Kings & Queen tetap tersedia setelah video.
-- Asisten bernama **Relay**, dengan mark frame/signal khusus. Konteks dan adapter Nexray tetap memakai data publik portofolio.
-- Bagian kesan pengunjung memakai Upstash Redis: nama dan 1–5 bintang wajib, komentar opsional, tanpa akun atau email. Rate limit dan idempotensi berjalan di server.
-- Banner Open Graph tech baru disertakan. Prerender, canonical, sitemap, robots, dan ProfilePage/Person JSON-LD tetap tersedia.
+- Hero desktop: narasi dan inventaris di kiri, foto asli dalam frame kaca berlapis di tengah, serta semesta teknologi di kanan. Tablet dan HP menyusun ulang bagian tersebut agar tetap terbaca.
+- Dua latar arsitektur kaca dibuat khusus dengan imagegen. Latar memiliki pantulan nyata dalam gambar, lalu bergerak lewat parallax. Material pada frame memakai beberapa lapisan dengan perspektif dan kedalaman CSS.
+- Renderer Three.js seluruh halaman dilepas dari jalur runtime. Scene dan tes lama tetap disertakan sebagai riwayat teknis; pengunjung tidak mengunduh bundle Three.js atau world dari entry aktif.
+- Orbit menampilkan seluruh 19 logo pada dua jalur yang terpisah, dengan satu rail silver tambahan. Ikon tetap tegak. Drag, momentum, seleksi, kategori, reset, pause, keyboard, dan deskripsi tool tersedia. Posisi node memakai transform GPU; satu loop lokal berjalan sekitar 30 pembaruan per detik saat dibutuhkan.
+- Orbit berhenti saat tidak terlihat, tab tersembunyi, intro/dialog terbuka, fokus/seleksi aktif, motion dijeda, atau reduced motion dipilih. Resize memperbarui posisi meski orbit sedang diam.
+- Splash tampil **setiap refresh**, termasuk deep link. Frame kaca dirakit, avatar asli masuk, lalu hero dibuka berurutan. Aset utama dan font masuk loading progress; tersedia skip/Escape, batas tunggu 4 detik, dan versi statis singkat untuk reduced motion.
+- Stack foto bisa dibuka, merespons pointer, dan mengubah sudut mengikuti scroll. Gerak idle kecil dan pantulan bergerak memakai transform/opacity.
+- Journey memakai ponsel asal dan enam modul kaca. Scroll mengendalikan posisi/sudut workspace; pergantian fase mengubah layar, perangkat, modul aktif, dan sinyal. Narasi lengkap enam fase tetap tersedia.
+- Karya berada dalam rak horizontal: tiga kartu desktop, dua tablet, satu kartu dengan petunjuk kartu berikutnya pada HP. Swipe/drag, panah, slider, filter, pencarian, keyboard, dan deep link tetap tersedia. Cover mendapat depth sesuai posisi. Cover merupakan ilustrasi konsep, bukan screenshot produk.
+- My Waifu memakai tiga kartu karakter dan deskripsi singkat. HP memiliki galeri swipe; desktop merespons pointer dengan tilt. Tidak menampilkan label “anime edit” atau sumber Pinterest.
+- Video langsung setelah galeri tetap banner 16:9, autoplay muted, loop, dan hanya memiliki kontrol audio. Judul muncul dari atas saat hover atau selama 2,6 detik setelah tap. Tidak ada tombol play, durasi, atau timeline.
+- Kings & Queen menampilkan **gambar utuh** dengan `object-fit: contain`, bersama caption dalam satu banner.
+- Relay, jejaring, komunitas, rating, footer, dialog, dan formulir mengikuti tema yang sama. Pilihan dark/light disimpan; pilihan ini tidak memengaruhi splash.
+- Open Graph baru `public/og-glass.png` memakai foto dan avatar asli. Ini artwork sharing, bukan screenshot hasil browser.
 
 ## Jalankan lokal
 
-Gunakan Node 22 atau 24. Dari folder yang berisi `package.json`:
+Gunakan Node 22 atau 24. Jalankan dari folder yang berisi `package.json`:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Buka `http://localhost:4173`. Salin `.env.example` ke `.env.local` hanya bila ingin mengaktifkan rating atau mengganti konfigurasi chat; restart dev server setelah mengubah env. Adapter lokal tersedia untuk `/api/chat`, `/api/ratings`, `/api/health`, dan `/api/contact`.
+Buka `http://localhost:4173`. Salin `.env.example` ke `.env.local` jika ingin mengaktifkan rating atau mengganti konfigurasi chat. Restart dev server setelah perubahan env. API lokal tersedia untuk `/api/chat`, `/api/ratings`, `/api/health`, dan `/api/contact`.
 
 ```sh
 npm run check
@@ -68,89 +38,70 @@ npm test
 npm run build
 ```
 
-Build menghasilkan `dist` dan HTML yang sudah diprerender. `npm run preview` hanya menyajikan static build; API membutuhkan dev server atau Vercel.
+Build menghasilkan `dist` dan HTML prerender. `npm run preview` hanya menyajikan static build; API membutuhkan dev server atau Vercel.
 
 ## Deploy Vercel
 
-1. Ekstrak ZIP, lalu masukkan isi folder `R_HMT_V2` ke repository milikmu. Import repository ke Vercel; Root Directory harus folder yang berisi `package.json` dan `api`, bukan `dist`.
-2. Pilih **Vite**, Install Command `npm ci`, Build Command `npm run build`, Output Directory `dist`, dan Node **22.x** atau **24.x**. Deploy. `vercel.json` sudah mengatur function chat 30 detik dan rating 15 detik.
+1. Ekstrak ZIP. Masukkan isi folder `R_HMT_V2` ke repository, lalu import ke Vercel.
+2. Root Directory adalah folder yang berisi `package.json` dan `api`, bukan `dist`.
+3. Pilih Vite, Install Command `npm ci`, Build Command `npm run build`, Output Directory `dist`, dan Node 22.x atau 24.x. `vercel.json` sudah tersedia.
 
-Untuk mengaktifkan rating, cukup buat satu database Redis di Upstash, kemudian salin **REST URL** dan **REST token** ke Environment Variables project Vercel:
+Rating membutuhkan dua Environment Variables dari satu database Upstash Redis:
 
 ```dotenv
 UPSTASH_REDIS_REST_URL=https://DATABASE.upstash.io
 UPSTASH_REDIS_REST_TOKEN=TOKEN_DARI_UPSTASH
 ```
 
-Aktifkan pada environment Production (dan Preview bila diperlukan), lalu redeploy. Tidak membutuhkan tabel, migrasi, SDK, atau server tambahan. Gunakan token yang dapat menulis, bukan read-only token. Jangan gunakan prefix `VITE_` dan jangan commit `.env.local`.
+Gunakan REST token yang dapat menulis. Aktifkan pada Production dan redeploy; tidak memerlukan tabel, migrasi, atau SDK tambahan. Jangan memakai prefix `VITE_` dan jangan commit `.env.local`. Bila env belum tersedia, form tidak mengaku berhasil menyimpan.
 
-Jika belum diisi, rating tampil sebagai belum tersedia dan form tidak mengaku berhasil menyimpan. Database nyata dan deployment publik belum dibuat atau diuji dari lingkungan pengembangan ini.
+Canonical masih `https://rhmt.biz.id/`. Jika domain final berbeda, sesuaikan `index.html`, `public/robots.txt`, dan `public/sitemap.xml`. Prerender, Person/ProfilePage JSON-LD, sitemap, robots, dan file verifikasi Google tetap disertakan. Panduan Search Console ada di `docs/SEO_DEPLOY.md`.
 
-Canonical saat ini `https://rhmt.biz.id/`. Jika memakai domain lain, sesuaikan `index.html`, `public/robots.txt`, dan `public/sitemap.xml` sebelum deploy. Panduan Search Console ada di `docs/SEO_DEPLOY.md`.
+Paket ini siap di-build untuk Vercel. Deployment publik dan database nyata belum dibuat atau diuji dari lingkungan ini.
 
-## Batas rating
+## Rating dan Relay
 
-Seluruh pemeriksaan dan penulisan rating dilakukan lewat satu skrip Lua Redis. Pengiriman ulang dengan ID dan isi yang sama mengembalikan hasil sebelumnya selama batas request belum terlampaui, sehingga tidak menambah hitungan lagi selama 24 jam. Replay juga memakai kuota percobaan untuk mencegah bypass batas request.
+Nama dan bintang 1–5 wajib; komentar opsional. Nama serta komentar tampil publik. Tanpa email atau akun. Rate limit, honeypot, same-origin, challenge HMAC, dan idempotensi tetap diperiksa pada server melalui skrip Lua atomik.
 
 | Batas | Nilai |
 | --- | --- |
 | Rating berhasil per browser | 1 per 24 jam |
-| Rating berhasil per IP | 1 per 10 menit, maksimal 3 per 24 jam |
+| Rating berhasil per IP | 1 per 10 menit; maksimal 3 per 24 jam |
 | Percobaan kirim per IP | 12 per 10 menit |
 | Rating berhasil seluruh situs | 500 per 24 jam |
 | Pembacaan per IP / seluruh situs | 60 / 500 per menit |
 | Nama / komentar | 50 / 600 karakter |
-| Daftar komentar tersimpan / ditampilkan | 250 / 20 terbaru |
+| Komentar tersimpan / ditampilkan | 250 / 20 terbaru |
 
-Validasi JSON, same-origin, honeypot, serta challenge bertanda tangan diterapkan di server. Token Redis tidak dikirim ke frontend; identitas IP/browser pada key berupa HMAC. Ini kontrol anti-spam sederhana untuk portofolio, bukan jaminan menahan serangan terdistribusi. Ringkasan bintang dan jumlah rating tetap tersimpan meski daftar komentar dibatasi 250 terbaru.
+Retry dengan ID dan isi yang sama tidak menambah hitungan selama 24 jam. Token Redis tetap di server. Moderasi melalui dashboard Redis; tidak ada sistem admin tambahan.
 
-Nama dan komentar tampil publik. Untuk menghapus atau memoderasi kesan, gunakan dashboard Redis; aplikasi tidak menambahkan sistem admin.
+Relay memakai `/api/chat` → Nexray GET `text`, dengan konteks publik dari sumber data yang sama. Probe sebelumnya mendapat HTML Site Unavailable; respons live provider belum terverifikasi. UI menyediakan error, retry, dan stop, tanpa jawaban palsu. Riwayat hanya bertahan selama halaman terbuka.
 
-## Konten dan komponen
+## Lokasi perubahan
 
-| Yang diubah | Lokasi |
+| Bagian | Lokasi |
 | --- | --- |
-| Proyek, journey, tools, orang, komunitas | `shared/content.json` |
-| About, filosofi, sosial, anime, video | `shared/profile.json` |
-| Pengetahuan Relay | `shared/knowledge.mjs` |
-| Layout, warna, typography, breakpoint | `src/spatial.css` |
-| Geometri, material, lighting, kamera, choreography | `src/scenes/world.ts` |
-| Jembatan React dan renderer | `src/components/SpatialWorld.tsx` |
-| Galeri dan video | `src/components/Personal.tsx`, `VideoPlayer.tsx` |
-| UI / API rating | `src/components/Ratings.tsx`, `api/ratings.js` |
-| Generator cover khusus | `scripts/generate-components.mjs` |
-| Metadata dan OG | `index.html`, `public/og-tech.png` |
+| Konten karya, journey, tools, orang, komunitas | `shared/content.json` |
+| About, sosial, karakter, video | `shared/profile.json` |
+| Tata letak, palet, breakpoint, motion | `src/glass.css` |
+| Frame foto | `src/components/Scene.tsx` |
+| Orbit dan momentum | `src/components/ToolOrbit.tsx`, `src/interaction/orbit.mjs` |
+| Scroll dan interaksi pointer | `src/hooks/useExperience.ts` |
+| Rak karya | `Archive.tsx`, `useWorkShelf.ts` |
+| Galeri, Kings & Queen, video | `Personal.tsx`, `VideoPlayer.tsx` |
+| Rating / chat API | `api/ratings.js`, `api/chat.js` |
+| Latar, prompt, referensi, OG source | `public/images/glass`, `docs/design/glass` |
 
-`npm run build` memakai `src/spatial.css` sebagai stylesheet aktif. CSS dan engine versi lama yang masih disertakan adalah arsip implementasi, bukan jalur runtime aktif.
+`src/glass.css` adalah stylesheet aktif. `spatial.css`, `SpatialWorld.tsx`, dan engine lama tidak dipakai entry halaman. Three.js masih dependency untuk source/tes historis, tetapi tidak masuk bundle pengunjung.
 
-Semua 16 karya tersedia untuk pencarian/filter dan indeks tanpa JavaScript. Status `ONLINE_UNVERIFIED` berarti tautan belum terverifikasi; `ARCHIVED` berarti arsip. Jangan mengganti status menjadi `LIVE_VERIFIED` tanpa pemeriksaan nyata.
+Video mempertahankan URL Cloudinary asli. Source portrait ditampilkan landscape melalui rotasi −90°. Jika mengganti dengan source landscape, ubah `rotation` menjadi 0 dan ukuran `.cote-video` ke 100% × 100%. Browser menentukan izin autoplay; player mencoba kembali pada gesture berikutnya.
 
-Video tetap memakai URL Cloudinary dari sumber asli, tanpa transcode. Sumber portrait ditampilkan landscape dengan `rotation: -90`. Bila mengganti dengan video landscape, set `rotation: 0` dan ubah dimensi `.cote-video` menjadi width/height 100%. Browser menentukan izin autoplay; player mencoba kembali pada gesture berikutnya tanpa menambahkan kontrol play.
+## Verifikasi dan batasnya
 
-## Motion dan fallback
+Production build dan **42 tes lulus**. Empat tes baru memeriksa jarak 19 target orbit pada berbagai ukuran, momentum 30/60/120 Hz, kondisi penghentian render, serta koordinat rail. Tes lain mencakup backend, Lua, native shelf, dan kontrak geometri historis. Tes geometri lama tidak membuktikan tampilan baru.
 
-Satu renderer WebGL2 memakai viewport yang dipotong sesuai stage; scene dibuat ketika terlihat. Material silver/ceramic/glass, environment reflection, directional lighting, dan shadow adalah bagian dari engine Three.js. Kontrol dan teks tetap elemen HTML yang dapat difokuskan.
+Audit memastikan seluruh entitas tersedia, 102 aset lama dan empat API tetap identik, satu H1, tanpa ID duplikat, tanpa aset lokal hilang, 38 SVG valid, versi branding dihapus dari halaman, dan satu video tanpa native controls.
 
-Target render 60 fps desktop dan 30 fps mobile; ini target dalam kode, **bukan hasil benchmark perangkat**. DPR dibatasi dan diturunkan jika frame berat; rendering berhenti pada tab tersembunyi. Global Motion dan reduced motion menampilkan scene statis. Jika WebGL2 tidak tersedia atau context hilang, foto/ilustrasi dan grid tool lokal tetap tersedia.
+**QA tampilan/FPS browser belum dijalankan.** Browser QA yang diizinkan workflow tidak tersedia. [Panduan Sites](skill://plugin_connector_1p_689987207de08191979cf68eca2941c6/sites/SKILL.md) menyatakan: “If `$control-browser` is unavailable, skip browser QA: do not start a preview server, install a browser, or improvise another browser-control path.” Karena itu kemiripan 100%, FPS perangkat, autoplay nyata, serta interaksi browser belum dapat dinyatakan lulus. Screenshot lama dalam dokumentasi bukan hasil tampilan baru.
 
-## Verifikasi
-
-TypeScript, build/prerender, 28 tes backend/data/proyeksi 3D/choreography, validitas SVG, tautan aset lokal, dan pemeriksaan preservasi konten dilakukan. Tes Lua menjalankan skrip produksi di liblua dengan model perintah Redis; ini belum merupakan pengujian database Upstash nyata.
-
-**QA visual V2.4 belum dilakukan:** browser QA yang diwajibkan workflow tidak tersedia. Kemiripan 100% dengan gambar konsep, posisi UI pada perangkat fisik, material/refleksi nyata, FPS, dan autoplay aktual belum dapat dinyatakan lulus. Gambar di `docs/design/approved-tech-concept.png` adalah arah visual yang disetujui; `public/og-tech.png` adalah artwork sharing, bukan screenshot website.
-
-Screenshot di `docs/screenshots` berasal dari versi sebelum V2.3. Tidak ada screenshot baru yang diklaim sebagai tampilan aktual V2.4. Daftar pemeriksaan yang masih diperlukan ada di `docs/QA_V2_4.md`.
-
-Chat tetap memakai `/api/chat` → Nexray GET `text`. Probe live sebelumnya mendapat HTML Site Unavailable; jawaban AI nyata belum terverifikasi. UI menyediakan error dan retry, tanpa respons palsu.
-
-## Dokumen
-
-- `CHANGELOG.md`: perubahan versi.
-- `docs/QA_V2_4.md`: hasil pemeriksaan V2.4, preservasi, dan batas verifikasi; laporan versi sebelumnya tetap disertakan.
-- `docs/QA_V2_3_1.md`: hasil pemeriksaan terbaru dan batas verifikasi; laporan V2.3 tetap disertakan.
-- `docs/CONTENT_PRESERVATION.json`: inventaris yang dipertahankan.
-- `docs/ASSETS_V2_3.md` dan `docs/ASSETS_V2_2.md`: aset baru serta sumber foto/brand/anime.
-- `docs/PRIVACY.md`: data layanan dan penyimpanan rating.
-- `docs/SEO_DEPLOY.md`: domain, metadata, sitemap, dan langkah Search Console.
-
-Tidak ada deployment Vercel, perubahan DNS, pendaftaran Search Console, atau koneksi database pengguna yang dilakukan dalam paket ini.
+Laporan terbaru: `docs/QA_V2_5.md`, `docs/static-validation-v2.5.json`, `docs/build-output-v2.5.txt`, dan `docs/test-output-v2.5.txt`. Riwayat perubahan ada di `CHANGELOG.md`. Referensi dan aset hasil imagegen adalah acuan visual, bukan bukti runtime.

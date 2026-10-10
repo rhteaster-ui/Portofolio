@@ -20,13 +20,19 @@ export function useWorkShelf(resetKey: string) {
       const rect = child.getBoundingClientRect();
       return { left: rect.left - origin + el.scrollLeft, width: rect.width };
     });
-    return shelfTargets(cards, el.clientWidth, el.scrollWidth, matchMedia('(min-width: 601px)').matches);
+    return shelfTargets(cards, el.clientWidth, el.scrollWidth, false);
   }
   function read(settled = false) {
     const el = shelf.current;
     if (!el) return;
     const points = targets(), nearest = nearestShelfIndex(points, el.scrollLeft);
     setVisiblePosition(nearest);
+    const width=el.clientWidth,left=el.scrollLeft;
+    const poses=Array.from(el.children,child=>{const card=child as HTMLElement;return {card,offset:(card.offsetLeft+card.offsetWidth/2-left-width/2)/width};});
+    poses.forEach(({card,offset}) => {
+      card.style.setProperty('--work-yaw',`${Math.max(-9,Math.min(9,-offset*12))}deg`);
+      card.style.setProperty('--work-depth',`${-Math.min(25,Math.abs(offset)*35)}px`);
+    });
     if (settled || pending.current !== null && Math.abs(el.scrollLeft - points[pending.current]) < 1.5) pending.current = null;
     if (pending.current === null) { navigation.current = nearest; setPosition(nearest); }
   }

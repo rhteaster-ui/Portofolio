@@ -3,6 +3,24 @@ import { MathUtils } from 'three';
 export const JOURNEY_STAGE = { width: 6.8, height: 6.3, fov: 36 };
 export const JOURNEY_SHAPES = { phone: [1.8,3.57,.3], base: [3.08,.12,1.89], lid: [3.07,1.88,.14], module: [.46,.46,.52], platform: [2.35,.1,-2.06] };
 export const WORK_STAGE = { width: 6.5, height: 4.7, screen: [5.1,3.1], bounds: [5.24,3.74,.28] };
+export const HERO_STAGE = { width: 7.6, expandedWidth: 10.2, height: 7.4, platform: [2.5,.1,-2.18], frames: [[2.8,3.95],[2.8,3.4],[2.55,3.25],[2.65,2.65]] };
+export const ANIME_STAGE = { width: 3.35, height: 4.95, screen: [2.75,4.08] };
+
+const arrival = value => 1 - (1 - MathUtils.clamp(value,0,1)) ** 4;
+
+/** The same physical frames assemble, fan out and react to scroll in the hero. */
+export function heroFramePose(index, open, entrance, time, motion, velocity) {
+  const local = arrival((entrance-index*.055)/.8);
+  const origin = [[.04,-.01,1.1],[-.94,.16,-.12],[.81,.32,-1.24],[1.72,.19,-2.08]][index];
+  return {
+    position: [origin[0]+(index===0?-.18:index===1?-1.1:index===2?.8:1.1)*open+(1-local)*(index%2?-.6:.6),origin[1]+(1-local)*.42+(motion?Math.sin(time*.6+index*.6)*.025:0),origin[2]-.45*open*index-(1-local)*1.7],
+    rotation: [0,(index===0?-.07:-.15+index*.1)+open*(index===1?-.21:.12)+(1-local)*.3,(index===0?-.025:index===1?.035:-.025)+velocity*.008*(index+1)]
+  };
+}
+
+export function heroGroupPose(entrance, scroll, pointerX, pointerY, motion) {
+  return { rotation: [(motion?pointerY*.09:0)+scroll*.1,-.23+(motion?pointerX*.24:0)+scroll*.38,-.02], y: (1-arrival(entrance))*.55-scroll*.15 };
+}
 
 export function journeyCamera(progress, pointer, motion) {
   return { x: motion ? (progress-.5)*.3+pointer*.16 : 0, y: .34+progress*.12 };

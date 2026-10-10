@@ -1,7 +1,30 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { PerspectiveCamera, Vector3 } from 'three';
-import { decaySpin, fitDistance, horizontalIntent, isSceneKind, projectHit } from '../src/scenes/spatialMath.mjs';
+import { decaySpin, fitDistance, horizontalIntent, isSceneKind, projectHit, settleFitDistance } from '../src/scenes/spatialMath.mjs';
+import { introCanContinue } from '../src/scenes/sceneReadiness.mjs';
+
+test('intro waits for its own rendered stage even if a different scene or empty frame was ready',()=>{
+  for(const renderer of ['ready','loading',undefined])assert.equal(introCanContinue(renderer,false),false);
+  assert.equal(introCanContinue('ready',true),true);
+  assert.equal(introCanContinue('unavailable',false),true);
+});
+
+test('the first frame after a narrower viewport fits immediately and zooming back in cannot crop',()=>{
+  let previous=fitDistance(8.45,6.6,620/560,36);
+  for(const aspect of [324/355,284/430,620/560]){
+    const required=fitDistance(8.45,6.6,aspect,36);
+    for(const rate of [30,60,120]){
+      const distance=settleFitDistance(previous,required,1/rate);
+      assert.ok(distance>=required);
+      const camera=new PerspectiveCamera(36,aspect,.1,80);camera.position.z=distance;camera.lookAt(0,0,0);camera.updateMatrixWorld();
+      for(const x of [-8.45/2,8.45/2])for(const y of [-6.6/2,6.6/2]){
+        const p=new Vector3(x,y,0).project(camera);assert.ok(Math.abs(p.x)<=1+1e-10&&Math.abs(p.y)<=1+1e-10);
+      }
+    }
+    previous=required;
+  }
+});
 
 test('renderer status metadata cannot become a scene or suppress native fallback imagery', () => {
   for(const kind of ['ready','unavailable','on','',undefined])assert.equal(isSceneKind(kind),false);

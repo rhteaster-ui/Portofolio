@@ -8,6 +8,11 @@ export function fitDistance(width, height, aspect, fov) {
   return Math.max(height / (2 * tangent), width / (2 * tangent * Math.max(.01, aspect)));
 }
 
+/** A narrower viewport must fit immediately; moving closer can ease without cropping. */
+export function settleFitDistance(previous, required, seconds) {
+  return previous < required ? required : MathUtils.damp(previous, required, 6, Math.max(0, seconds));
+}
+
 /** Exact exponential integration, so release travel is independent of refresh rate. */
 export function decaySpin(velocity, seconds, friction = 7) {
   const decay = Math.exp(-friction * Math.max(0, seconds));

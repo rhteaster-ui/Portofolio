@@ -1,6 +1,6 @@
 {
-  "version": "2.4.1",
-  "baseline": "checkpoints/r-hmt-v24-source-delivery.zip",
+  "version": "2.4.2",
+  "baseline": "checkpoints/r-hmt-v241-source-delivery.zip",
   "counts": {
     "PROJECTS": 16,
     "JOURNEY_STEPS": 6,
@@ -26,10 +26,12 @@
     }
   },
   "requestedRevisions": [
-    "continuous chapter camera path",
-    "retargetable Journey turn and network signal",
-    "consistent work shelf navigation and native gestures",
-    "reachable mobile snap points and resize alignment"
+    "intro stage readiness and complete critical preload",
+    "immediate safe resize fitting",
+    "full physical hero and gallery framing",
+    "native accordion and layout refresh",
+    "orbit focus holds and renderer failure fallbacks",
+    "clipboard error separation and required rating name"
   ],
   "status": "verified",
   "unchangedFromV23": [
@@ -58,5 +60,28 @@
     "api/contact.js",
     "api/health.js",
     "api/ratings.js"
-  ]
+  ],
+  "unchangedFromV241": [
+    "shared/content.json",
+    "shared/profile.json",
+    "shared/knowledge.mjs",
+    "api/chat.js",
+    "api/contact.js",
+    "api/health.js",
+    "api/ratings.js"
+  ],
+  "latest_verification": {
+    "version": "2.5.0",
+    "entities": {
+      "projects": 16,
+      "journey": 6,
+      "tools": 19,
+      "people": 14,
+      "communities": 6
+    },
+    "public_assets_byte_identical": 102,
+    "api_files_byte_identical": 4,
+    "copy_edits": "Replace nggak with tidak; refine About and motivation with the same user facts.",
+    "details": "static-validation-v2.5.json"
+  }
 }

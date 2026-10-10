@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { BoxGeometry, CylinderGeometry, TorusGeometry, Group, Mesh, PerspectiveCamera, Vector3, MathUtils } from 'three';
-import { JOURNEY_STAGE, JOURNEY_SHAPES, WORK_STAGE, journeyCamera, journeyLayout, workFramePose } from '../src/scenes/choreography.mjs';
+import { ANIME_STAGE, HERO_STAGE, JOURNEY_STAGE, JOURNEY_SHAPES, WORK_STAGE, heroFramePose, heroGroupPose, journeyCamera, journeyLayout, workFramePose } from '../src/scenes/choreography.mjs';
 import { fitDistance } from '../src/scenes/spatialMath.mjs';
 
 const viewports = [[284,320],[324,320],[354,320],[520,375],[570,430]];
@@ -78,4 +78,35 @@ test('Journey camera respects paused pointer motion and invalid chapter indices 
   assert.deepEqual(journeyCamera(.5,-.5,false),journeyCamera(.5,.5,false));
   assert.deepEqual(journeyLayout(-10),journeyLayout(0));assert.deepEqual(journeyLayout(900),journeyLayout(5));
   for(let i=0;i<6;i++)assert.equal(journeyLayout(i).cubes.length,6);
+});
+
+test('hero portrait frames and physical base fit mobile and desktop while fanning out and reacting to scroll',()=>{
+  const group=new Group();const frames=HERO_STAGE.frames.map(([w,h])=>new Mesh(new BoxGeometry(w+.14,h+.38,.28)));frames.forEach(frame=>group.add(frame));
+  const [radius,depth,y]=HERO_STAGE.platform;
+  const base=new Mesh(new CylinderGeometry(radius,radius,depth,64));base.position.y=y;group.add(base);
+  for(const extra of [.15,.45]){const ring=new Mesh(new TorusGeometry(radius+extra,.011,6,96));ring.rotation.x=Math.PI/2;ring.position.y=y+.05;group.add(ring);}
+  try{
+    for(const [width,height] of [[284,345],[324,345],[354,385],[520,460],[590,530],[730,550],[630,610]]){
+      const camera=new PerspectiveCamera(36,width/height,.1,80);
+      for(const open of [0,.25,.5,.75,1])for(const scroll of [0,.5,1])for(const px of [-.5,.5])for(const py of [-.5,.5])for(const velocity of [-2,2]){
+        frames.forEach((frame,i)=>{const pose=heroFramePose(i,open,1,3,true,velocity);frame.position.set(...pose.position);frame.rotation.set(...pose.rotation);});
+        const pose=heroGroupPose(1,scroll,px,py,true);group.rotation.set(...pose.rotation);group.position.y=pose.y;group.updateMatrixWorld(true);
+        camera.position.set(px*.08,.2,fitDistance(MathUtils.lerp(HERO_STAGE.width,HERO_STAGE.expandedWidth,open),HERO_STAGE.height,camera.aspect,36));camera.lookAt(0,.02,0);camera.updateMatrixWorld();
+        inside(group,camera,`hero ${width}×${height}, open ${open}, scroll ${scroll}, pointer ${px}/${py}`);
+      }
+    }
+  }finally{group.traverse(object=>{if(object.isMesh){object.geometry.dispose();object.material.dispose();}});}
+});
+
+test('all character frames fit their native mobile and desktop gallery stages at pointer extremes',()=>{
+  const [w,h]=ANIME_STAGE.screen;const frame=new Mesh(new BoxGeometry(w+.14,h+.38,.28));
+  try{
+    for(const [width,height] of [[238,360],[272,360],[297,390],[205,310],[290,370],[352,445],[390,445]]){
+      const camera=new PerspectiveCamera(36,width/height,.1,80);camera.position.set(0,.2,fitDistance(ANIME_STAGE.width,ANIME_STAGE.height,camera.aspect,36));camera.lookAt(0,0,0);camera.updateMatrixWorld();
+      for(const px of [-.5,.5])for(const py of [-.5,.5])for(const velocity of [-4,4])for(const bob of [-.022,.022]){
+        frame.rotation.set(py*.12+velocity*.012,-.06+px*.24,-.015);frame.position.y=bob;frame.updateMatrixWorld(true);
+        inside(frame,camera,`anime ${width}×${height}, pointer ${px}/${py}`);
+      }
+    }
+  }finally{frame.geometry.dispose();frame.material.dispose();}
 });

@@ -33,6 +33,6 @@ export default defineConfig(({ mode }) => {
   return {
   plugins: [react(), localApi()],
   server: { host: '0.0.0.0', port: 4173, allowedHosts: ['terminal.local'], watch: { ignored: ['**/docs/**'] } },
-  build: { target: 'es2022', emptyOutDir: true, rollupOptions: { output: { manualChunks: { three: ['three'] } } } }
+  build: { target: 'es2022', emptyOutDir: true }
   };
 });

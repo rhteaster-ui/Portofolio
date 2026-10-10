@@ -20,8 +20,8 @@ export default function Archive() {
   function close() { setActive(null); history.replaceState(null, '', '#archive'); }
   return <section className="archive section-pad" id="archive" aria-labelledby="archive-title">
     <div className="wrap">
-      <Chapter number="04">THE DIGITAL ARCHIVE</Chapter>
-      <div className="section-heading"><h2 id="archive-title">Things I made.<br/><em>Things I learned.</em></h2><div><p>Kumpulan project dan eksperimen yang pernah aku buat. Beberapa masih bisa diakses, sebagian udah nggak aktif. Ada juga yang sebatas proof of concept.</p><span className="micro-note">{PROJECTS.length} ENTRIES / AN ONGOING EXPLORATION</span></div></div>
+      <Chapter number="01">THE DIGITAL ARCHIVE</Chapter>
+      <div className="section-heading"><h2 id="archive-title">Selected Works.<br/><em>Build. Learn. Repeat.</em></h2><div><p>Kumpulan project dan eksperimen yang pernah aku buat. Beberapa masih bisa diakses, sebagian sudah tidak aktif. Ada juga yang sebatas proof of concept.</p><span className="micro-note">{PROJECTS.length} ENTRIES / AN ONGOING EXPLORATION</span></div></div>
       <div className="archive-toolbar"><div className="filter-list" aria-label="Filter karya">{categories.map(c => <button key={c.id} onClick={() => { setFilter(c.id); }} aria-pressed={filter === c.id}>{c.name}</button>)}</div><label className="search-box"><Search size={16}/><span className="sr-only">Cari arsip</span><input value={query} onChange={e => { setQuery(e.target.value); }} placeholder="Cari sebuah ide…" type="search"/></label></div>
       <p className="sr-only" role="status">{selection.length} karya ditemukan</p>
       <div className="shelf-navigation"><span>DRAG / SWIPE TO EXPLORE</span><div><span aria-live="polite">{selection.length ? String(cursor + 1).padStart(2, '0') : '00'} <small>/ {String(selection.length).padStart(2,'0')}</small></span><button onClick={() => moveBy(-1)} disabled={cursor === 0} aria-label="Proyek sebelumnya"><ArrowLeft size={20}/></button><button onClick={() => moveBy(1)} disabled={cursor >= selection.length - 1} aria-label="Proyek berikutnya"><ArrowRight size={20}/></button></div></div>
