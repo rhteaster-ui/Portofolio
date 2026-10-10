@@ -1,32 +1,41 @@
-# Deployment dan indexing
+# Vercel dan Google Search Console
 
-## Paket Vercel
+## Build dan domain
 
-Import isi folder `R_HMT_V2`, bukan `dist`, sebagai root repository/project. Pilih Vite, `npm ci`, `npm run build`, output `dist`, Node 22.x/24.x. API berada di folder root `api/`; tidak memerlukan VPS. Rating memakai Upstash Redis bila dua env diaktifkan; halaman dan chat tidak memerlukan database tersebut. Environment ada di `.env.example` dan panduan dua env ada di README.
+Import root folder yang berisi `package.json` dan `api`, pilih Vite, `npm ci`, `npm run build`, output `dist`, Node 22.x/24.x. Dua env Upstash mengaktifkan rating; frontend tidak memerlukan database lain.
 
-## SEO yang sudah dipasang
+Build menyelaraskan canonical, OG URL, Person/WebSite/ProfilePage JSON-LD, robots, dan sitemap. Prioritas origin:
 
-- HTML berbahasa Indonesia; title, description, satu H1, heading bagian dan alt gambar.
-- Prerender isi halaman sebelum JavaScript berjalan. Semua 16 proyek hadir di HTML; indeks noscript menyertakan masalah, eksplorasi, hasil, teknologi, dan tautan. Semua 19 tools tercantum.
-- Canonical, Open Graph/Twitter image `og-tech.png` 1730×909, serta ProfilePage/Person JSON-LD dengan profil sosial yang memang ada. Gambar OG adalah artwork sharing, bukan screenshot implementasi.
-- `robots.txt` mengizinkan halaman publik dan menghindari `/api/`. `sitemap.xml` menunjuk halaman utama.
-- File verifikasi Google dari sumber awal dipertahankan.
+1. `PORTFOLIO_SITE_URL=https://domainmu/` (opsional; gunakan untuk domain custom).
+2. `VERCEL_PROJECT_PRODUCTION_URL` otomatis dari Vercel, tanpa `VERCEL_URL` preview acak.
+3. Fallback lokal `https://rhmt.biz.id/`.
 
-## Setelah deploy
+URL harus HTTPS root tanpa password, query, atau fragment. Domain custom harus tersambung ke deployment yang benar sebelum diajukan ke Google. Sitemap memuat halaman utama saja; `#work-id` adalah modal/hash pada halaman yang sama, bukan halaman proyek terpisah. `lastmod` 10 Oktober 2026 mengikuti perubahan konten ini.
 
-1. Pastikan domain final memang `https://rhmt.biz.id/`. Jika berbeda, ganti domain pada `index.html`, `public/robots.txt`, dan `public/sitemap.xml`, kemudian build ulang. Jangan biarkan canonical menunjuk domain yang berbeda dari tujuan publik. `docs/design/og-layout.html` adalah sumber OG versi lama, tidak dipakai build V2.3.
-2. Sambungkan domain di Vercel dan gunakan DNS record yang ditampilkan untuk project tersebut.
-3. Tambahkan/verifikasi kepemilikan properti domain di Google Search Console menggunakan record DNS yang diberikan untuk akunmu. File verifikasi lama hanya berguna bila cocok dengan properti/metode verifikasi yang dipakai.
-4. Kirim `https://rhmt.biz.id/sitemap.xml` melalui menu Sitemaps.
-5. Gunakan URL Inspection untuk halaman utama, jalankan pengujian URL live, lalu Request Indexing jika halaman bisa diakses. Gunakan Rich Results Test untuk memeriksa JSON-LD setelah URL tersedia publik.
-6. Pantau status indexing dan laporan performa. Tidak ada pendaftaran Search Console, perubahan DNS, atau deployment publik yang dilakukan oleh paket ini.
+## SEO yang disertakan
 
-Animasi tidak menyembunyikan konten utama dari HTML. Sitemap/structured data membantu Google memahami dan menemukan halaman; keduanya tidak menjamin indexing, rich result, atau peringkat tertentu. Hash `#work-id` adalah navigasi di satu halaman, bukan URL halaman proyek terpisah dalam sitemap.
+- Konten Indonesia, satu H1, heading semantik, alt gambar, title dan description alami dengan nama Rohmatulloh/R_HMT OFC serta konteks pelajar MA.
+- Variasi nama yang diminta pengguna tersimpan di Person `alternateName`: Rahmat, Ramat, R_HMT, R_HMT OFC, rhmt ofc, R_hmt ofc. Tidak ada keyword tersembunyi atau janji peringkat.
+- Prerender seluruh 18 karya dan 19 tools; indeks noscript menyediakan deskripsi, stack, dan tautan karya tanpa cerita lama yang tidak terverifikasi.
+- ProfilePage mainEntity Person, WebSite publisher, sameAs sosial asli; tidak memakai markup rating bisnis/produk untuk rating portofolio pribadi.
+- Robots mengizinkan halaman publik dan menghindari endpoint API. Meta robots index/follow dan max-image-preview:large.
+- OpenGraph/Twitter memakai URL gambar pengguna persis, sudah diambil dengan HTTP 200 dan diperiksa sebagai JPEG 1734×907:
+  https://res.cloudinary.com/dhxfke7kq/image/upload/v1791627186/Ssstt/dsoqtqltngd5e2yg4cbw.jpg
+- File `googleced8c5ac5a2976cb.html` asli dipertahankan. Ini hanya memverifikasi akun/metode yang sesuai dengan token lama.
 
-Referensi primer (diperiksa 9 Oktober 2026):
-- https://developers.google.com/search/docs/appearance/structured-data/profile-page
+## Daftarkan setelah deployment tersedia
+
+1. Buka https://search.google.com/search-console/ dan tambahkan Domain property untuk domain custom; verifikasi DNS memakai TXT dari akun Google Anda. Untuk hostname Vercel, gunakan URL-prefix property dan metode verifikasi yang disediakan untuk akun tersebut. Jangan gunakan token akun lain.
+2. Pastikan URL publik menerima HTTP 200, canonical menunjuk deployment tersebut, HTTPS aktif, dan halaman tidak memakai noindex/password.
+3. Pada Sitemaps, kirim `https://domainmu/sitemap.xml`.
+4. Pada URL Inspection, inspeksi URL utama, pilih Test Live URL, lalu Request Indexing bila dapat diakses.
+5. Periksa JSON-LD melalui https://search.google.com/test/rich-results dan pantau Page Indexing serta Performance. Hubungkan profil publik asli ke domain yang sama bila sesuai.
+
+Paket ini **belum didaftarkan melalui akun Search Console**: koneksi akun/akses properti tidak tersedia dalam sesi ini. Tidak ada perubahan DNS atau deployment yang dilakukan. Robots, sitemap, markup, dan alias membantu discovery serta pemahaman identitas; Google menentukan indexing dan peringkat. Pengajuan crawl tidak menjamin indexing.
+
+Referensi primer, diperiksa 10 Oktober 2026:
+- https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
+- https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 - https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl
-
-## Video / provider AI
-
-Autoplay menggunakan muted dan playsInline. Keputusan akhir autoplay tetap milik browser; V2.3 mencoba kembali pada gesture berikutnya tanpa kontrol play. Chat menuju `/api/chat`, lalu GET Copilot dengan `text` berisi konteks publik dan percakapan. Respons nyata belum berhasil diverifikasi: pengujian provider sebelumnya mendapat HTML “Site Unavailable”, bukan JSON AI. Tidak ada jawaban palsu atau klaim koneksi sukses. QA visual/autoplay V2.3 belum dilakukan; lihat `QA_V2_3.md`.
+- https://developers.google.com/search/docs/appearance/structured-data/profile-page
+- https://developers.google.com/search/docs/essentials/technical

@@ -4,27 +4,13 @@
       "name": "HIRASAWA.ID",
       "title": "WHATSAPP OFFICIAL COMMUNITY",
       "tagline": "Wadah sentral resmi dalam mengasah logika koding, rekayasa produk, serta berkolaborasi antarsesama peretas digital.",
-      "image": "Coding.png",
+      "image": "/images/hirasawa-community.jpg",
       "url": "https://chat.whatsapp.com/GJrFX9GSOJiBLyJmJNNixi",
-      "status": "Tautan dari arsip · belum diverifikasi",
+      "status": "Ikon dan nama dari halaman undangan resmi WhatsApp · fungsi bergabung belum diuji",
       "members": [
         "SHADOWNEX",
         "hmmodzvip",
         "reiz_riz",
-        "Zakrenz"
-      ]
-    },
-    {
-      "name": "BELAJAR CODING & BAHAS ANIME",
-      "title": "DISCUS & LEARNING HUB",
-      "tagline": "Forum kolaborasi santai belajar struktur kode pemrograman dasar sembari mendiskusikan serial kultur anime populer.",
-      "image": "Coding.png",
-      "url": "https://chat.whatsapp.com/Dfl4xKPiJoAH01YtWTlB97",
-      "status": "Tautan dari arsip · belum diverifikasi",
-      "members": [
-        "SHADOWNEX",
-        "reiz_riz",
-        "iboyCloud",
         "Zakrenz"
       ]
     },
@@ -536,16 +522,16 @@
       "name": "Veritas (Artikel OCR)",
       "category": "AI Tools",
       "url": "https://artikel-ocr.vercel.app/",
-      "description": "Eksperimen OCR dan AI untuk mengubah artikel serta dokumen panjang menjadi ringkasan yang lebih mudah dibaca.",
+      "description": "Antarmuka analisis artikel ilmiah, PDF, dan URL dengan ringkasan, ekstraksi metodologi, deteksi bias, serta ruang tanya jawab berbasis dokumen. Situs menampilkan integrasi OCR iLovePDF.",
       "problem": "Membaca dokumen ilmiah panjang atau artikel web bertele-tele sangat memakan waktu, terutama ketika menyalin teks manual dari PDF pindaian.",
       "exploration": "Integrasi pipeline OCR andal dipadukan dengan kecerdasan buatan perangkum teks untuk analisis dokumen secepat kilat.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "Vue",
-        "TypeScript",
-        "Node.js"
+        "React",
+        "OCR",
+        "iLovePDF API"
       ],
-      "summary": "Eksperimen OCR dan AI untuk mengubah artikel serta dokumen panjang menjadi ringkasan yang lebih mudah dibaca.",
+      "summary": "Analisis PDF dan artikel URL dengan ringkasan, metodologi, dan konteks dokumen.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -555,17 +541,16 @@
       "name": "Tierlist Maker",
       "category": "Utilities",
       "url": "https://tierlist-maker-gamma.vercel.app/",
-      "description": "Menyusun gambar menjadi daftar peringkat, mengatur urutannya, lalu mengekspor hasil visualnya.",
+      "description": "Editor tier list berbasis gambar: upload gambar, atur baris dan peringkat lewat drag atau sentuhan, ubah tema canvas, lalu download hasilnya.",
       "problem": "Pembuatan bagan peringkat (tier list) seringkali lambat di mobile dan memerlukan proses crop gambar manual yang tidak ramah pengguna.",
       "exploration": "Optimalisasi penanganan drag-and-drop murni berpadu rendering grid dinamis berbasis HTML Canvas untuk ekspor cepat.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "HTML5 Canvas",
-        "Vue",
-        "TypeScript",
-        "Tailwind CSS"
+        "JavaScript",
+        "Tailwind CSS",
+        "html2canvas"
       ],
-      "summary": "Menyusun gambar menjadi daftar peringkat, mengatur urutannya, lalu mengekspor hasil visualnya.",
+      "summary": "Susun gambar ke tier list, atur peringkat, lalu ekspor hasil visual.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -575,17 +560,16 @@
       "name": "Anime Quote",
       "category": "Utilities",
       "url": "https://anime-quote-six.vercel.app/",
-      "description": "Ruang kecil untuk menemukan kutipan anime dan merangkainya menjadi kartu visual dengan HTML Canvas.",
+      "description": "Editor kartu kutipan anime dengan pilihan karakter, teks, dan tampilan, serta unduhan hasil visual ke PNG.",
       "problem": "Kutipan anime inspiratif tersebar secara acak di internet tanpa format visual yang layak dibagikan ke media sosial.",
       "exploration": "Eksperimen integrasi API katalog kutipan anime dipadu filter sentimen emosi dan rendering kartu visual menggunakan kanvas modern.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "Vue",
-        "TypeScript",
-        "HTML5 Canvas",
-        "Tailwind CSS"
+        "React",
+        "CSS",
+        "PNG Export"
       ],
-      "summary": "Ruang kecil untuk menemukan kutipan anime dan merangkainya menjadi kartu visual dengan HTML Canvas.",
+      "summary": "Merangkai kutipan dan karakter anime menjadi kartu gambar.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -595,17 +579,17 @@
       "name": "Analisis Tanaman",
       "category": "AI Tools",
       "url": "https://analyze-tanaman.vercel.app/welcome",
-      "description": "Eksplorasi AI vision untuk membaca foto tanaman dan memberi informasi awal tentang kondisinya.",
+      "description": "Flora.AI menampilkan alur identifikasi penyakit daun melalui Gemini AI, dukungan beberapa tanaman, ekspor laporan PDF, dan riwayat diagnosis. Halaman saat diperiksa juga menampilkan pemberitahuan pemeliharaan.",
       "problem": "Mendiagnosis hama tanaman atau penyakit tanaman membutuhkan waktu lama dan ahli agronomi, menyebabkan keterlambatan penanganan di lahan.",
       "exploration": "Mengintegrasikan penangkapan kamera ponsel secara langsung ke model multi-modal vision jarak jauh untuk analisis visual instan di lapangan.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "React",
+        "JavaScript",
         "Tailwind CSS",
-        "Gemini Multi-modal",
-        "Serverless"
+        "Gemini AI",
+        "Vercel API"
       ],
-      "summary": "Eksplorasi AI vision untuk membaca foto tanaman dan memberi informasi awal tentang kondisinya.",
+      "summary": "Antarmuka analisis penyakit daun, laporan PDF, dan riwayat diagnosis.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -615,17 +599,16 @@
       "name": "HD Upscale",
       "category": "AI Tools",
       "url": "https://hd-upscale-nine.vercel.app/",
-      "description": "Eksperimen peningkatan resolusi gambar melalui layanan AI dan antarmuka web sederhana.",
+      "description": "Spark Upscaler menyediakan upload JPG, PNG, atau WebP hingga 10 MB, pilihan resolusi output 4K/6K/8K, opsi face enhance, perbandingan hasil, dan download gambar.",
       "problem": "Skala pembesaran gambar konvensional hanya merenggangkan grid pixel, menciptakan kekaburan visual dan noise yang merusak estetika desain grafik.",
       "exploration": "Eksplorasi kalkulasi sintetik detail frekuensi tinggi lewat neural-network vision AI ketimbang sekadar interpolasi bilinear.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "Gemini Vision API",
-        "Cloud Run",
-        "Canvas API",
-        "Tailwind"
+        "JavaScript",
+        "Tailwind CSS",
+        "REST API"
       ],
-      "summary": "Eksperimen peningkatan resolusi gambar melalui layanan AI dan antarmuka web sederhana.",
+      "summary": "Upload gambar, pilih resolusi dan face enhance, lalu unduh hasil upscale.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -635,17 +618,17 @@
       "name": "Repo Flow",
       "category": "Utilities",
       "url": "https://auto-reporistory-githb.vercel.app/",
-      "description": "Menjelajahi cara memetakan struktur repository menjadi diagram yang lebih mudah dipahami.",
+      "description": "RepoFlow adalah web manager GitHub untuk upload ZIP atau banyak file, membaca struktur repository, memperbarui atau menghapus file, serta memantau aktivitas push. Antarmukanya mendukung penggunaan dari HP maupun desktop.",
       "problem": "Pengembang membuang waktu mengatur boilerplate, repositori terpencil, dan file workflow CI/CD berulang-kali untuk setiap eksperimen mikro.",
       "exploration": "Menghubungkan API REST GitHub untuk merancang wizard interaktif pembangun berkas konfigurasi, inisialisasi Git, dan push otomatis.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "GitHub API",
         "React",
-        "OAuth 2.0",
-        "Tailwind CSS"
+        "GitHub API",
+        "JSZip",
+        "IndexedDB"
       ],
-      "summary": "Menjelajahi cara memetakan struktur repository menjadi diagram yang lebih mudah dipahami.",
+      "summary": "Upload project dan kelola file repository GitHub dari satu antarmuka.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -655,17 +638,16 @@
       "name": "Fake Loby ML",
       "category": "Utilities",
       "url": "https://fake-loby-ml-nine.vercel.app/",
-      "description": "Generator visual lobi Mobile Legends untuk kreasi fiktif dan eksplorasi HTML Canvas.",
+      "description": "Generator kartu lobi Mobile Legends fiktif dengan input nama player, pilihan rank dan border, preview canvas, serta unduhan gambar.",
       "problem": "Membuat visualisasi kartu profil game secara kustom dengan lencana tier dinamis membutuhkan keterampilan desain grafis yang rumit.",
       "exploration": "Penerapan rendering canvas 2D untuk mengombinasikan berkas grafis skin, lencana, teks dinamis, dan parameter secara real-time.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "HTML5 Canvas",
-        "React",
-        "TypeScript",
+        "JavaScript",
+        "HTML Canvas",
         "Tailwind CSS"
       ],
-      "summary": "Generator visual lobi Mobile Legends untuk kreasi fiktif dan eksplorasi HTML Canvas.",
+      "summary": "Buat kartu lobi ML fiktif dengan nama, rank, dan border pilihan.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -696,17 +678,16 @@
       "name": "TugasKu Lite",
       "category": "Productivity",
       "url": "https://tugasku3-lite.netlify.app/",
-      "description": "Versi ringan pengelola tugas dengan penyimpanan lokal dan antarmuka yang ringkas.",
+      "description": "Pengelola tugas sekolah dengan deadline, prioritas, filter status, jadwal pelajaran mingguan, catatan, dan pilihan tema. Data tersimpan di browser melalui localStorage.",
       "problem": "Aplikasi pelacak tugas sering kali lamban dan memakan memori berlebih saat dibuka pada jaringan lambat atau terminal smartphone.",
       "exploration": "Optimasi berat runtime browser sekecil mungkin dan penyimpanan tumpukan status lokal yang tangguh terhadap fluktuasi sinyal internet.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "React",
-        "Tailwind CSS",
-        "Local Storage",
-        "Vite"
+        "JavaScript",
+        "localStorage",
+        "Chart.js"
       ],
-      "summary": "Versi ringan pengelola tugas dengan penyimpanan lokal dan antarmuka yang ringkas.",
+      "summary": "Tugas sekolah, jadwal pelajaran, dan catatan dengan penyimpanan lokal.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -716,18 +697,16 @@
       "name": "Screenshot Web",
       "category": "Utilities",
       "url": "https://screenshot-web-omega.vercel.app/",
-      "description": "Eksperimen menangkap halaman web menjadi gambar melalui browser headless.",
+      "description": "Tool capture website dari URL dengan preset viewport mobile hingga PC 4K, ukuran custom, render scale 1x–3x, pilihan full page, preview, dan download gambar.",
       "problem": "Ekstensi screenshot biasa sering kali memecah font khusus, merusak posisi elemen CSS absolut, dan gagal menangkap layout gulir penuh.",
       "exploration": "Membangun proxy server instansi Chromium tanpa kepala (headless) untuk merender animasi dan mengekstrak snapshot visual akurat.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "Puppeteer",
-        "Express",
-        "Node.js",
-        "React",
-        "Vite"
+        "JavaScript",
+        "CSS",
+        "REST API"
       ],
-      "summary": "Eksperimen menangkap halaman web menjadi gambar melalui browser headless.",
+      "summary": "Capture halaman web dengan ukuran viewport dan skala render pilihan.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -737,17 +716,15 @@
       "name": "Cek Kartu",
       "category": "Utilities",
       "url": "https://cek-provider-six.vercel.app/",
-      "description": "Utilitas mengenali operator seluler dari awalan nomor telepon.",
+      "description": "DOMPUL CEK adalah antarmuka pengecekan kartu XL dan AXIS. Nomor diproses lewat API untuk menampilkan status kartu, pulsa, masa aktif, masa tenggang, dan paket yang sedang aktif.",
       "problem": "Kesalahan pengenalan nomor seluler oleh pengguna saat pengisian pulsa menimbulkan kekacauan sistem pengiriman transaksi lokal.",
       "exploration": "Membangun mesin ekspresi reguler (RegEx) berkinerja tinggi terhadap dataset awalan nomor handphone dari seluruh operator lokal.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "React",
-        "Tailwind CSS",
-        "RegEx Engine",
-        "Vite"
+        "JavaScript",
+        "REST API"
       ],
-      "summary": "Utilitas mengenali operator seluler dari awalan nomor telepon.",
+      "summary": "Cek informasi kartu XL/AXIS: pulsa, masa aktif, dan paket.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -757,17 +734,15 @@
       "name": "Indosawit.News v2",
       "category": "Productivity",
       "url": "https://nexssuspage.vercel.app",
-      "description": "Eksperimen portal informasi sawit, agregasi berita, dan penyajian data harga.",
+      "description": "Halaman penghubung IndoSawit.news dan Sanexus.ai: portal informasi berita nasional/global serta jalur ke layanan deep search AI untuk riset pasar dan konteks berita.",
       "problem": "Petani kelapa sawit mandiri kesulitan mendapatkan transparansi riwayat pasar harga harian dan info pencegahan penyakit tanaman perkebunan.",
       "exploration": "Agregasi data harian harga minyak sawit mentah (CPO) nasional dalam kemasan grafik kontras tinggi yang mudah dibaca di luar ruangan.",
       "outcome": "Tercatat sebagai bagian dari arsip eksplorasi pribadi. Ketersediaan demo dan hasil eksperimen saat ini belum dikonfirmasi.",
       "ecosystem": [
-        "React",
-        "Tailwind",
-        "REST APIs",
-        "Vectary 3D"
+        "JavaScript",
+        "Tailwind CSS"
       ],
-      "summary": "Eksperimen portal informasi sawit, agregasi berita, dan penyajian data harga.",
+      "summary": "Portal penghubung berita IndoSawit.news dan riset Sanexus.ai.",
       "status": "ONLINE_UNVERIFIED",
       "type": "work",
       "visualType": "illustrative"
@@ -847,6 +822,46 @@
       "summary": "Eksperimen katalog anime dan interaksi visual menggunakan transformasi CSS.",
       "status": "ARCHIVED",
       "type": "experiment",
+      "visualType": "illustrative"
+    },
+    {
+      "id": "finora-journey",
+      "name": "Finora Journey",
+      "category": "Productivity",
+      "url": "https://finorajourney.my.id/",
+      "description": "Ruang pengelolaan keuangan pribadi dan bisnis dengan transaksi, kategori, utang, target, limit pengeluaran, laporan, dan simulasi skenario. Dilengkapi penyimpanan lokal dan ruang agent untuk eksplorasi rencana keuangan.",
+      "summary": "Catatan keuangan pribadi dan bisnis, target, serta simulasi skenario.",
+      "problem": "",
+      "exploration": "",
+      "outcome": "Deskripsi ditulis dari halaman dan bundle publik yang diakses 10 Oktober 2026; alur backend tidak diuji.",
+      "ecosystem": [
+        "Next.js",
+        "React",
+        "Dexie",
+        "IndexedDB"
+      ],
+      "status": "ONLINE_UNVERIFIED",
+      "type": "work",
+      "visualType": "illustrative"
+    },
+    {
+      "id": "am-proaktif",
+      "name": "Alight Motion Pro — RHMT",
+      "category": "Utilities",
+      "url": "https://am-proaktif.vercel.app/",
+      "description": "Antarmuka dispatcher Alight Motion dengan alur input email akun dan verifikasi magic link untuk akses Pro. Respons JSON dan log aktivitas ditampilkan sebagai bagian dari proses aktivasi.",
+      "summary": "Antarmuka aktivasi dengan email, magic link, respons, dan log aktivitas.",
+      "problem": "",
+      "exploration": "",
+      "outcome": "Deskripsi ditulis dari halaman dan bundle publik yang diakses 10 Oktober 2026; alur backend tidak diuji.",
+      "ecosystem": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "REST API"
+      ],
+      "status": "ONLINE_UNVERIFIED",
+      "type": "work",
       "visualType": "illustrative"
     }
   ]

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Search, X } from 'lucide-react';
 import { PROJECTS, statusLabels } from '../data';
 import type { Project } from '../types';
-import { Chapter, ExternalLink, Modal } from './Primitives';
+import { Chapter, Modal } from './Primitives';
 import { useWorkShelf } from '../hooks/useWorkShelf';
 const categories = [{ id: 'all', name: 'Semua' }, { id: 'AI Tools', name: 'AI & eksplorasi' }, { id: 'Utilities', name: 'Tools' }, { id: 'Productivity', name: 'Produktivitas' }, { id: 'Archive Experiments', name: 'Eksperimen' }];
 export function WorkCover({ work }: { work: Project }) {
@@ -33,8 +33,8 @@ export default function Archive() {
       </article>)}</div>
       {!selection.length && <div className="empty-state"><Search size={30}/><h3>Belum ketemu.</h3><p>Coba nama karya, teknologi, atau kata yang berbeda.</p><button className="text-link" onClick={() => { setQuery(''); setFilter('all'); }}>Reset pencarian <X size={15}/></button></div>}
       {selection.length > 1 && <div className="shelf-track"><input type="range" min="0" max={selection.length - 1} value={cursor} aria-label="Pilih posisi pada rak karya" aria-valuetext={`${selection[cursor]?.name}, ${cursor + 1} dari ${selection.length}`} onChange={e => move(Number(e.target.value), true)}/><span aria-hidden="true">{selection[cursor]?.name}</span></div>}
-      <div className="archive-bottom"><span>Semua {PROJECTS.length} proyek tetap di arsip.</span><span className="micro-note">BUKA COVER UNTUK CERITA & TAUTAN</span></div>
-      {active && <Modal label={active.name} onClose={close} className="work-modal"><WorkCover work={active}/><p className="eyebrow">DIGITAL ARCHIVE / {statusLabels[active.status]}</p><h2>{active.name}</h2><p className="modal-summary">{active.summary}</p><div className="tag-list">{active.ecosystem.map(t => <span key={t}>{t}</span>)}</div><dl className="work-story"><div><dt>Pertanyaan awal</dt><dd>{active.problem}</dd></div><div><dt>Apa yang dieksplorasi</dt><dd>{active.exploration}</dd></div><div><dt>Catatan arsip</dt><dd>{active.outcome}</dd></div></dl>{active.status !== 'ARCHIVED' && active.url && <><ExternalLink className="button button-dark" href={active.url}>{active.status === 'LIVE_VERIFIED' ? 'Buka demo' : 'Kunjungi tautan lama'}</ExternalLink><p className="micro-note">{active.status === 'LIVE_VERIFIED' ? 'Demo pernah diuji; ketersediaan dapat berubah.' : 'Ketersediaan dan fungsi tautan ini belum diverifikasi.'}</p></>}<p className="asset-note">Cover merupakan ilustrasi konsep, bukan screenshot produk.</p></Modal>}
+      <div className="archive-bottom"><span>Semua {PROJECTS.length} proyek tetap di arsip.</span><span className="micro-note">BUKA COVER / DESKRIPSI & STACK</span></div>
+      {active && <Modal label={active.name} onClose={close} className="work-modal"><WorkCover work={active}/><h2>{active.name}</h2><p className="modal-summary">{active.description}</p><div className="tag-list" aria-label="Stack proyek">{active.ecosystem.map(t => <span key={t}>{t}</span>)}</div></Modal>}
     </div>
   </section>;
 }

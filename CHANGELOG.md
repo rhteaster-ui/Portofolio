@@ -1,3 +1,20 @@
+## 2.6.1 — 10 Oktober 2026
+
+- Prevent premature hero dimming when Selected Works is initially visible on a tall desktop viewport.
+- Preserve fractional review rail progress independently of browser scroll rounding; cache rail geometry and cap visual updates near 30 Hz.
+- Only mouse hover pauses reviews; unrelated page pointer releases no longer restart the review loop.
+- Three regression tests added; build and all 49 tests passed. Browser/recording remain unavailable.
+
+## 2.6.0 — 10 Oktober 2026
+
+- Selectable photo stack, orbit without hover pause, and native scroll cover transition into Selected Works.
+- Distinct implementation technology assembly centered on GitHub, with lightweight CSS/SVG signal motion.
+- Simplified work details; source-based descriptions and stacks; added Finora Journey and Alight Motion Pro.
+- Horizontal moving visitor reviews; preserve existing Upstash limits/API.
+- User Cloudinary OG; Rohmatulloh/R_HMT OFC metadata and canonical origin resolved at build.
+- Remove requested anime/coding community, rename The community, use actual HIRASAWA WhatsApp invite image, improve Kimi light contrast.
+- 46 tests passed; browser/GPU QA and recording remain unavailable in this environment.
+
 # V2.5 — 2026-10-10
 
 - Apply the user’s dark glass architectural reference and complementary pearl/silver light mode. Remove the visible version badge.

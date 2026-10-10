@@ -71,17 +71,24 @@
     "api/ratings.js"
   ],
   "latest_verification": {
-    "version": "2.5.0",
+    "version": "2.6.1",
     "entities": {
-      "projects": 16,
+      "projects": 18,
       "journey": 6,
       "tools": 19,
       "people": 14,
-      "communities": 6
+      "communities": 5
     },
-    "public_assets_byte_identical": 102,
+    "original_identity_unchanged": true,
+    "v25_public_assets_byte_identical": 106,
     "api_files_byte_identical": 4,
-    "copy_edits": "Replace nggak with tidak; refine About and motivation with the same user facts.",
-    "details": "static-validation-v2.5.json"
+    "authorized_changes": [
+      "Add two projects",
+      "Scrape and correct public project descriptions/stacks",
+      "Remove BELAJAR CODING & BAHAS ANIME",
+      "Use actual HIRASAWA WhatsApp icon",
+      "Update OG and SEO metadata/sitemap"
+    ],
+    "details": "static-validation-v2.6.1.json"
   }
 }

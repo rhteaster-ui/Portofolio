@@ -1,8 +1,8 @@
-# R_HMT V2.5 — Learning in Progress
+# R_HMT V2.6.1 — Learning in Progress
 
 Portofolio React, TypeScript, dan Vite dengan konsep ruang kaca, graphite, silver, serta light mode pearl white. Dark mode mengikuti referensi terbaru pengguna. Nomor versi hanya dicatat di dokumentasi dan metadata paket; tidak ada badge versi di halaman.
 
-Seluruh isi tetap tersedia: **16 karya, 6 fase perjalanan, 19 tools, 14 orang, dan 6 komunitas**. Seluruh 102 aset publik sebelumnya tetap identik, termasuk `pp.png`, `pp-dev.png`, gambar karakter, dan duo Kings & Queen. Tampilan memakai turunan WebP yang sudah tersedia. Perubahan bahasa mengikuti `Aboutme.txt`, dengan “tidak” menggantikan “nggak” serta konteks personal tetap dipertahankan.
+Isi terbaru: **18 karya, 6 fase perjalanan, 19 tools, 14 orang, dan 5 komunitas**. Dua proyek ditambahkan dan BELAJAR CODING & BAHAS ANIME dihapus sesuai permintaan. Aset identitas asli tetap identik, termasuk `pp.png`, `pp-dev.png`, gambar karakter, dan duo Kings & Queen. Tampilan memakai turunan WebP yang sudah tersedia. Perubahan bahasa mengikuti `Aboutme.txt`, dengan “tidak” menggantikan “nggak” serta konteks personal tetap dipertahankan.
 
 ## Pembaruan visual dan motion
 
@@ -10,7 +10,7 @@ Seluruh isi tetap tersedia: **16 karya, 6 fase perjalanan, 19 tools, 14 orang, d
 - Dua latar arsitektur kaca dibuat khusus dengan imagegen. Latar memiliki pantulan nyata dalam gambar, lalu bergerak lewat parallax. Material pada frame memakai beberapa lapisan dengan perspektif dan kedalaman CSS.
 - Renderer Three.js seluruh halaman dilepas dari jalur runtime. Scene dan tes lama tetap disertakan sebagai riwayat teknis; pengunjung tidak mengunduh bundle Three.js atau world dari entry aktif.
 - Orbit menampilkan seluruh 19 logo pada dua jalur yang terpisah, dengan satu rail silver tambahan. Ikon tetap tegak. Drag, momentum, seleksi, kategori, reset, pause, keyboard, dan deskripsi tool tersedia. Posisi node memakai transform GPU; satu loop lokal berjalan sekitar 30 pembaruan per detik saat dibutuhkan.
-- Orbit berhenti saat tidak terlihat, tab tersembunyi, intro/dialog terbuka, fokus/seleksi aktif, motion dijeda, atau reduced motion dipilih. Resize memperbarui posisi meski orbit sedang diam.
+- Orbit berhenti saat tidak terlihat, tab tersembunyi, intro/dialog terbuka, pointer ditekan/drag atau seleksi aktif, motion dijeda, atau reduced motion dipilih. Resize memperbarui posisi meski orbit sedang diam.
 - Splash tampil **setiap refresh**, termasuk deep link. Frame kaca dirakit, avatar asli masuk, lalu hero dibuka berurutan. Aset utama dan font masuk loading progress; tersedia skip/Escape, batas tunggu 4 detik, dan versi statis singkat untuk reduced motion.
 - Stack foto bisa dibuka, merespons pointer, dan mengubah sudut mengikuti scroll. Gerak idle kecil dan pantulan bergerak memakai transform/opacity.
 - Journey memakai ponsel asal dan enam modul kaca. Scroll mengendalikan posisi/sudut workspace; pergantian fase mengubah layar, perangkat, modul aktif, dan sinyal. Narasi lengkap enam fase tetap tersedia.
@@ -19,7 +19,22 @@ Seluruh isi tetap tersedia: **16 karya, 6 fase perjalanan, 19 tools, 14 orang, d
 - Video langsung setelah galeri tetap banner 16:9, autoplay muted, loop, dan hanya memiliki kontrol audio. Judul muncul dari atas saat hover atau selama 2,6 detik setelah tap. Tidak ada tombol play, durasi, atau timeline.
 - Kings & Queen menampilkan **gambar utuh** dengan `object-fit: contain`, bersama caption dalam satu banner.
 - Relay, jejaring, komunitas, rating, footer, dialog, dan formulir mengikuti tema yang sama. Pilihan dark/light disimpan; pilihan ini tidak memengaruhi splash.
-- Open Graph baru `public/og-glass.png` memakai foto dan avatar asli. Ini artwork sharing, bukan screenshot hasil browser.
+- Open Graph/Twitter memakai URL Cloudinary persis dari pengguna, JPEG 1734×907. Aset OG lokal lama tetap disimpan sebagai arsip.
+
+## Pembaruan interaksi V2.6
+
+- Tiga foto hero menyimpan posisi layer; klik gambar belakang atau pilihan gambar untuk mengangkatnya ke depan. Foto asli selalu bisa dipilih kembali.
+- Hover dan fokus keyboard tidak menghentikan orbit. Tekan/drag atau pilih ikon untuk jeda; tekan ikon yang sama atau Escape untuk melanjutkan.
+- Selected Works naik menutup hero yang dipin. Hero panjang di HP tetap dapat dibaca sebelum bagian terakhir dipin. Scroll native dan gerak dapat dibalik; reduced motion menampilkan halaman biasa.
+- Bagian 04 memakai exploded stack dengan GitHub di tengah, React, Vite, TypeScript, CSS/SVG, Upstash, Node.js, Vercel, dan REST. Jalur signal, float, pointer tilt, pemisahan layer, dan klik penjelasan menggunakan CSS/SVG; daftar 19 tools tetap tersedia.
+- Dialog karya hanya gambar, nama, deskripsi, dan stack. Deskripsi publik dikoreksi dari situs asli; Finora Journey dan Alight Motion Pro ditambahkan. Stack yang belum dapat dibuktikan tidak diisi sebagai kepastian. Catatan penelusuran: `docs/PROJECT_RESEARCH_V2_6.md`.
+- The community memakai foto komunitas HIRASAWA.ID dari halaman undangan WhatsApp asli dan penanda WhatsApp. Tidak memakai ikon coding acak.
+- Kimi light mode memakai K gelap, dot brand tetap biru. SVG asli tidak diubah.
+- Kesan pengunjung berupa satu rail horizontal tanpa testimonial duplikat. Rail bergerak perlahan, balik arah di ujung, bisa dijeda/swipe/keyboard/panah, dan berhenti ketika disentuh, difokuskan, hover, offscreen, tab tersembunyi, atau reduced motion.
+
+## Polish V2.6.1
+
+Transisi penutup hero dimulai dari posisi awal Selected Works, sehingga hero pendek di layar desktop tinggi tidak meredup sebelum scroll. Gerak otomatis komentar menyimpan posisi pecahan sendiri agar tetap bergerak ketika browser membulatkan `scrollLeft`. Pembaruan visual rail dibatasi sekitar 30 Hz dan ukuran rail diukur saat resize/wake; fokus, sentuhan, dan navigasi manual tetap menjeda gerak.
 
 ## Jalankan lokal
 
@@ -55,7 +70,7 @@ UPSTASH_REDIS_REST_TOKEN=TOKEN_DARI_UPSTASH
 
 Gunakan REST token yang dapat menulis. Aktifkan pada Production dan redeploy; tidak memerlukan tabel, migrasi, atau SDK tambahan. Jangan memakai prefix `VITE_` dan jangan commit `.env.local`. Bila env belum tersedia, form tidak mengaku berhasil menyimpan.
 
-Canonical masih `https://rhmt.biz.id/`. Jika domain final berbeda, sesuaikan `index.html`, `public/robots.txt`, dan `public/sitemap.xml`. Prerender, Person/ProfilePage JSON-LD, sitemap, robots, dan file verifikasi Google tetap disertakan. Panduan Search Console ada di `docs/SEO_DEPLOY.md`.
+Canonical, JSON-LD, OG URL, robots, dan sitemap dipasangkan saat build: `PORTFOLIO_SITE_URL` jika diisi; jika tidak, hostname Production Vercel; terakhir fallback `https://rhmt.biz.id/`. Untuk domain custom, cukup isi satu env opsional `PORTFOLIO_SITE_URL=https://domainmu/` lalu redeploy. Prerender, Person/ProfilePage JSON-LD, sitemap, robots, dan file verifikasi Google tetap disertakan. Panduan Search Console ada di `docs/SEO_DEPLOY.md`.
 
 Paket ini siap di-build untuk Vercel. Deployment publik dan database nyata belum dibuat atau diuji dari lingkungan ini.
 
@@ -98,10 +113,10 @@ Video mempertahankan URL Cloudinary asli. Source portrait ditampilkan landscape 
 
 ## Verifikasi dan batasnya
 
-Production build dan **42 tes lulus**. Empat tes baru memeriksa jarak 19 target orbit pada berbagai ukuran, momentum 30/60/120 Hz, kondisi penghentian render, serta koordinat rail. Tes lain mencakup backend, Lua, native shelf, dan kontrak geometri historis. Tes geometri lama tidak membuktikan tampilan baru.
+Production build dan **49 tes lulus**. Empat tes tambahan V2.6 memeriksa transisi chapter, hero HP yang panjang, pemilihan canonical, dan penolakan URL canonical tidak valid. Empat tes V2.5 memeriksa jarak 19 target orbit pada berbagai ukuran, momentum 30/60/120 Hz, kondisi penghentian render, serta koordinat rail. Tes lain mencakup backend, Lua, native shelf, dan kontrak geometri historis. Tes geometri lama tidak membuktikan tampilan baru.
 
-Audit memastikan seluruh entitas tersedia, 102 aset lama dan empat API tetap identik, satu H1, tanpa ID duplikat, tanpa aset lokal hilang, 38 SVG valid, versi branding dihapus dari halaman, dan satu video tanpa native controls.
+Audit versi terbaru mencatat entitas, pelestarian aset identitas, empat API, satu H1, ID, referensi aset, SVG, metadata sosial, dan video. Hasil terukur ada di laporan JSON terbaru.
 
 **QA tampilan/FPS browser belum dijalankan.** Browser QA yang diizinkan workflow tidak tersedia. [Panduan Sites](skill://plugin_connector_1p_689987207de08191979cf68eca2941c6/sites/SKILL.md) menyatakan: “If `$control-browser` is unavailable, skip browser QA: do not start a preview server, install a browser, or improvise another browser-control path.” Karena itu kemiripan 100%, FPS perangkat, autoplay nyata, serta interaksi browser belum dapat dinyatakan lulus. Screenshot lama dalam dokumentasi bukan hasil tampilan baru.
 
-Laporan terbaru: `docs/QA_V2_5.md`, `docs/static-validation-v2.5.json`, `docs/build-output-v2.5.txt`, dan `docs/test-output-v2.5.txt`. Riwayat perubahan ada di `CHANGELOG.md`. Referensi dan aset hasil imagegen adalah acuan visual, bukan bukti runtime.
+Laporan terbaru: `docs/QA_V2_6_1.md`, `docs/static-validation-v2.6.1.json`, `docs/build-output-v2.6.1.txt`, dan `docs/test-output-v2.6.1.txt`. Riwayat perubahan ada di `CHANGELOG.md`. Referensi dan aset hasil imagegen adalah acuan visual, bukan bukti runtime.

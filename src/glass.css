@@ -277,3 +277,70 @@ html[data-motion=off] .work-visual-button{transform:none}
 }
 @media(max-width:360px){.header-actions button{width:39px}.hero-cta{gap:13px}.hero h1{font-size:44px}.hero-inventory a{padding-inline:9px}.hero-inventory span{font-size:7px}.scene-hero{width:250px;height:400px}.orbit-node{padding:6px;min-width:33px}.tool-list{grid-template-columns:1fr}.anime-card{flex-basis:85%}.royal-scene h3{font-size:27px}.royal-scene figcaption{padding:14px 11px}.royal-art{height:240px}.journey-module{width:70px}.journey-phone{width:130px;height:253px}.phone-terminal strong{font-size:13px}.footer h2{font-size:34px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition-duration:.01ms!important}.hero-room,.journey-workspace,.portrait-assembly,[data-depth]{transform:none!important}.intro-panel,.intro-identity,.intro-orbit{opacity:1!important}.intro-panel-two{transform:rotateY(-18deg) rotateZ(-5deg)}.intro-panel-three{transform:rotateY(-18deg) rotateZ(2deg)}}
+
+/* Chapter handoff: the work sheet covers the pinned opening scene, using native scroll. */
+.opening-sequence{position:relative;isolation:isolate}
+.opening-sequence>.hero{position:sticky;top:var(--hero-pin-top,72px);z-index:0}
+.opening-sequence>.archive{z-index:2;border-top:1px solid var(--line-strong);box-shadow:0 -24px 70px var(--shadow)}
+.opening-sequence>.archive:before{content:'';position:absolute;left:0;right:0;top:-1px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:var(--cover-edge,0);pointer-events:none}
+.hero-grid{transform:perspective(1400px) rotateX(var(--chapter-fold,0deg)) scale(var(--chapter-scale,1));transform-origin:50% 85%}
+.hero:before{content:'';position:absolute;inset:0;background:var(--bg);opacity:var(--chapter-shade,0);z-index:8;pointer-events:none}
+[data-hero-covered=true] .hero *,[data-hero-covered=true] .hero *:before,[data-hero-covered=true] .hero *:after{animation-play-state:paused!important}
+/* The three sheets retain their DOM identity as their depth order changes. */
+.portrait-sheet{padding:12px 12px 13px;text-align:left;color:var(--ink);transition:transform .7s cubic-bezier(.16,1,.3,1),box-shadow .6s,opacity .6s}
+.portrait-sheet[data-slot="0"]{z-index:3}.portrait-sheet[data-slot="1"]{z-index:2}.portrait-sheet[data-slot="2"]{z-index:1}
+.portrait-sheet .portrait-caption{display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding:10px 3px 0;position:static;letter-spacing:0}
+.portrait-caption strong{font:600 14px Space,sans-serif}.portrait-caption>span{font-size:7px;color:var(--muted)}
+.portrait-backplate .portrait-window{height:calc(100% - 41px)}.portrait-backplate>.glass-corner{display:none}
+.portrait-original img{position:absolute;width:282%;height:auto;max-width:none;left:-176%;top:-28%;object-fit:initial}
+.portrait-art img{position:absolute;inset:0;width:100%;height:100%;max-width:100%;object-fit:cover;object-position:center}
+.portrait-art img[src$=".svg"]{object-fit:contain;background:#edf2f7}
+.portrait-backplate img{opacity:.38}.stack-open .portrait-backplate img{opacity:.88}
+.portrait-sheet[data-slot="0"] .portrait-window{animation:stack-arrive .55s cubic-bezier(.2,.8,.2,1)}
+.stack-controls{flex-direction:column;align-items:center;gap:7px;bottom:-9px;z-index:10}
+.photo-choices{display:flex;gap:5px;justify-content:center;background:var(--glass);border:1px solid var(--line);padding:3px;border-radius:6px;animation:stack-arrive .3s ease}
+.photo-choices button{display:flex;align-items:center;gap:5px;background:none;padding:0 7px;font-size:7px;min-height:36px;border-radius:4px;color:var(--muted)}
+.photo-choices button[aria-pressed=true]{background:var(--surface-2);color:var(--ink)}.photo-choices button>span{font-size:6px;color:var(--quiet)}
+@keyframes stack-arrive{from{opacity:.3;filter:brightness(1.15)}to{opacity:1;filter:brightness(1)}}
+.tool-kimi{display:inline-block}.tool-kimi img{width:100%;height:100%;object-fit:contain}.kimi-light{display:none}[data-theme=light] .kimi-light{display:block}[data-theme=light] .kimi-dark{display:none}
+/* The implementation stack is an exploded glass assembly, distinct from the hero orbit. */
+.technology-stack{min-width:0;width:100%;max-width:560px;margin:auto}
+.tech-stage{position:relative;aspect-ratio:400/430;perspective:1100px;--tech-rx:0deg;--tech-ry:0deg}
+.tech-assembly{position:absolute;inset:0;transform:rotateX(var(--tech-rx)) rotateY(var(--tech-ry));transform-style:preserve-3d;transition:transform .32s ease-out}
+.tech-substrate{position:absolute;left:31%;top:34%;width:38%;height:37%;transform:rotateX(24deg) rotateY(-18deg) rotateZ(-12deg);transform-style:preserve-3d;pointer-events:none}
+.tech-substrate>span{position:absolute;inset:0;background:linear-gradient(125deg,var(--line),transparent 60%);border:1px solid var(--line-strong);border-radius:12px;box-shadow:inset 1px 1px 0 #fff2;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.tech-substrate>span:nth-child(1){transform:translate3d(-15px,20px,-60px)}.tech-substrate>span:nth-child(2){transform:translate3d(-5px,8px,-30px)}.tech-substrate>span:nth-child(3){transform:translate3d(5px,-4px,0)}
+.tech-stack-expanded .tech-substrate>span:nth-child(1){transform:translate3d(-35px,55px,-110px)}.tech-stack-expanded .tech-substrate>span:nth-child(2){transform:translate3d(-15px,25px,-55px)}
+.tech-traces{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;transform:translateZ(4px)}
+.tech-trace-base{stroke:var(--line-strong);fill:none;stroke-width:1}.tech-trace-signal{stroke:var(--accent);fill:none;stroke-width:1.4;stroke-dasharray:14 210;stroke-dashoffset:224;animation:tech-data 6s linear infinite;opacity:.55}
+.tech-traces g{animation:tech-breathe 12s ease-in-out infinite}.tech-trace-selected .tech-trace-base{stroke:var(--accent);stroke-width:2}
+.tech-hub{position:absolute;left:50%;top:48%;width:24%;aspect-ratio:1;transform:translate(-50%,-50%) translateZ(38px);transform-style:preserve-3d}
+.tech-hub a{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:var(--chrome);border:1px solid var(--line-strong);border-radius:14px;box-shadow:inset 1px 1px 0 #fff3,0 15px 30px var(--shadow)}
+.tech-hub a>.brand-tool-icon{width:35%;height:35%}.tech-hub strong{font:600 12px Space,sans-serif}.tech-hub a>span{font:500 5px Space,sans-serif;color:var(--quiet);letter-spacing:.8px}
+.tech-hub-layers{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}.tech-hub-layers>span{position:absolute;inset:0;background:var(--glass);border:1px solid var(--line-strong);border-radius:14px;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.tech-hub-layers>span:first-child{transform:translate3d(9px,-10px,-22px)}.tech-hub-layers>span:last-child{transform:translate3d(19px,-22px,-44px)}
+.tech-stack-expanded .tech-hub-layers>span:first-child{transform:translate3d(18px,-22px,-35px)}.tech-stack-expanded .tech-hub-layers>span:last-child{transform:translate3d(38px,-45px,-70px)}
+.tech-tile{position:absolute;width:20%;max-width:94px;aspect-ratio:1;transform:translate(-50%,-50%) translateZ(28px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:9px;background:var(--chrome);border:1px solid var(--line-strong);border-radius:10px;box-shadow:inset 1px 1px 0 #fff3,5px 10px 20px var(--shadow);animation:tech-float 9s ease-in-out infinite}
+.tech-tile>.brand-tool-icon,.tech-code-symbol{width:34%;height:34%;max-width:32px;max-height:32px}
+.tech-tile>span{font:600 9px Space,sans-serif}.tech-tile>small{font:500 5px Space,sans-serif;letter-spacing:.9px;color:var(--quiet)}
+.tech-code-symbol{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round}.tech-code-symbol circle{fill:var(--surface)}
+.tech-tile:hover,.tech-tile.tech-selected{border-color:var(--accent);box-shadow:inset 1px 1px 0 #fff4,0 10px 27px var(--shadow)}
+.tech-selected{animation:none;transform:translate(-50%,-50%) translateZ(52px)}
+.tech-pipeline{position:absolute;left:10%;right:10%;bottom:3%;display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:16px;transform:translateZ(12px)}
+.tech-pipeline>span{font:500 7px Space,sans-serif;letter-spacing:1px;color:var(--quiet);animation:tech-phase 12s ease-in-out infinite}.tech-pipeline>span:nth-child(2){animation-delay:-8s}.tech-pipeline>span:nth-child(3){animation-delay:-4s}
+.tech-stack-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:10px;border-top:1px solid var(--line)}.tech-stack-footer>span{font:500 7px Space,sans-serif;letter-spacing:.8px;color:var(--quiet)}.tech-stack-footer>button{display:flex;align-items:center;gap:8px;min-height:44px;background:var(--glass);border:1px solid var(--line);padding:0 12px;border-radius:6px;font-size:9px}
+.tech-description{min-height:104px;padding:18px 0 0}.tech-description>strong{font:600 14px Space,sans-serif}.tech-description>p{font-size:11px;line-height:1.7;color:var(--muted);margin-top:7px;max-width:440px}
+.brand-tool-icon.tool-react{filter:brightness(0) saturate(100%) invert(71%) sepia(76%) saturate(487%) hue-rotate(153deg)}
+.brand-tool-icon.tool-typescript{filter:brightness(0) saturate(100%) invert(45%) sepia(42%) saturate(951%) hue-rotate(166deg)}
+.brand-tool-icon.tool-upstash,.brand-tool-icon.tool-nodedotjs{filter:brightness(0) saturate(100%) invert(67%) sepia(59%) saturate(512%) hue-rotate(99deg)}
+@keyframes tech-data{to{stroke-dashoffset:0}}@keyframes tech-breathe{0%,100%{opacity:.6}50%{opacity:1}}@keyframes tech-float{0%,100%{transform:translate(-50%,-50%) translateZ(28px)}50%{transform:translate(-50%,-54%) translateZ(35px)}}@keyframes tech-phase{0%,28%,100%{color:var(--ink)}34%,94%{color:var(--quiet)}}
+/* Reviews never become a vertical grid. Native touch scroll, no duplicate testimonials. */
+.review-carousel{margin-top:35px}.review-navigation{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.review-navigation>span{font:500 8px Space,sans-serif;letter-spacing:1px;color:var(--quiet)}.review-navigation>div{display:flex;gap:7px}.review-navigation button{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.visitor-notes{display:flex;flex-wrap:nowrap;gap:18px;overflow-x:auto;overscroll-behavior-x:contain;scroll-behavior:auto;scrollbar-width:thin;scrollbar-color:var(--quiet) transparent;padding:4px 0 16px;margin-top:0;align-items:stretch}
+.visitor-note{flex:0 0 340px;max-width:85%;min-height:145px}.visitor-note p{max-height:240px;overflow-y:auto}.visitor-note>div:first-child{flex-wrap:wrap}.visitor-stars{flex-shrink:0}
+[data-paused=true] .tech-assembly *,[data-motion=off] .tech-assembly *{animation-play-state:paused!important}
+@media(max-width:600px){.tech-tile{padding:7px;gap:4px;border-radius:8px}.tech-tile>span{font-size:8px}.tech-tile>small{font-size:4px}.tech-hub strong{font-size:10px}.tech-hub a>span{font-size:4px;letter-spacing:.5px}.tech-pipeline>span{font-size:6px;letter-spacing:.5px}.tech-stack-footer>span{font-size:6px}.tech-description{min-height:104px}.review-navigation>span{font-size:6px;letter-spacing:.5px;max-width:45%}.visitor-notes{gap:14px}.visitor-note{flex-basis:85%;max-width:85%}.photo-choices button{min-height:40px;font-size:7px;padding-inline:6px}.portrait-caption strong{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.opening-sequence>.hero{position:relative!important;top:auto!important}.hero-grid{transform:none!important}.hero:before{opacity:0!important}.tech-assembly{transform:none!important}.tech-trace-signal{stroke-dasharray:none;opacity:.3}.tech-tile{animation:none!important}}
+.community-avatar{position:relative;flex-shrink:0;display:block;width:44px;height:44px}.community-avatar>img:first-child{width:44px;height:44px;object-fit:cover;border-radius:9px}.community-avatar .community-whatsapp{position:absolute;right:-4px;bottom:-4px;width:18px;height:18px;padding:3px;border-radius:50%;background:#25d366;border:1px solid var(--surface);filter:none}
+
+.photo-choices[hidden]{display:none}.scene-hero.stack-open{margin-bottom:45px}.stack-open .stack-controls{bottom:-49px}
